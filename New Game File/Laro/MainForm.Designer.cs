@@ -166,6 +166,7 @@ namespace Laro
 			this.Controls.Add(this.StrtButton);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.Name = "MainForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Discrete Math";
 			this.Load += new System.EventHandler(this.MainFormLoad);
 			this.ResumeLayout(false);

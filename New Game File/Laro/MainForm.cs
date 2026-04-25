@@ -15,6 +15,7 @@ namespace Laro
 		}
 		void StrtButtonClick(object sender, EventArgs e)
 		{
+			//Start Button creates a new form for creating a new game or continuing the old one
 			Form Form1 = new Form1();
 			this.Hide();
 			Form1.Show();
@@ -22,7 +23,9 @@ namespace Laro
 		}
 		void QuitBtnClick(object sender, EventArgs e)
 		{
+			//Quit Button shows dialog box that confirms whether the player wants to quit or not
             DialogResult quit = MessageBox.Show("Are you sure you want to quit?", "Yes, Quit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //Selecting yes closes the application
 			if(quit == DialogResult.Yes)
 			{
 				Application.Exit();
@@ -35,6 +38,7 @@ namespace Laro
 
         private void CrdtsBtn_Click(object sender, EventArgs e)
         {
+        	//Button for credit section
             frmCredits frmCreditsPage = new frmCredits();
             this.Hide();
             frmCreditsPage.Show();

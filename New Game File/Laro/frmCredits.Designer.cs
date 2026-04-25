@@ -177,7 +177,7 @@
         	this.panel1.Controls.Add(this.btnClose);
         	this.panel1.Controls.Add(this.btnMinimze);
         	this.panel1.Location = new System.Drawing.Point(1, 0);
-        	this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.panel1.Margin = new System.Windows.Forms.Padding(2);
         	this.panel1.Name = "panel1";
         	this.panel1.Size = new System.Drawing.Size(788, 37);
         	this.panel1.TabIndex = 1;
@@ -190,7 +190,7 @@
         	this.btnClose.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(198)))), ((int)(((byte)(0)))));
         	this.btnClose.Location = new System.Drawing.Point(745, 0);
-        	this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.btnClose.Margin = new System.Windows.Forms.Padding(2);
         	this.btnClose.Name = "btnClose";
         	this.btnClose.Size = new System.Drawing.Size(44, 40);
         	this.btnClose.TabIndex = 0;
@@ -206,7 +206,7 @@
         	this.btnMinimze.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.btnMinimze.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(198)))), ((int)(((byte)(0)))));
         	this.btnMinimze.Location = new System.Drawing.Point(704, 0);
-        	this.btnMinimze.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.btnMinimze.Margin = new System.Windows.Forms.Padding(2);
         	this.btnMinimze.Name = "btnMinimze";
         	this.btnMinimze.Size = new System.Drawing.Size(44, 40);
         	this.btnMinimze.TabIndex = 0;
@@ -498,8 +498,9 @@
         	this.Controls.Add(this.label2);
         	this.Controls.Add(this.label1);
         	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-        	this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.Margin = new System.Windows.Forms.Padding(2);
         	this.Name = "frmCredits";
+        	this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         	this.Text = "frmCreditscs";
         	this.panel1.ResumeLayout(false);
         	this.ResumeLayout(false);

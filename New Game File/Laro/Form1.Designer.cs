@@ -37,14 +37,21 @@ namespace Laro
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.BckBtn = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// BckBtn
 			// 
+			this.BckBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BckBtn.BackgroundImage")));
+			this.BckBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.BckBtn.FlatAppearance.BorderSize = 0;
+			this.BckBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.BckBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BckBtn.ForeColor = System.Drawing.Color.White;
 			this.BckBtn.Location = new System.Drawing.Point(13, 13);
 			this.BckBtn.Name = "BckBtn";
-			this.BckBtn.Size = new System.Drawing.Size(190, 54);
+			this.BckBtn.Size = new System.Drawing.Size(130, 44);
 			this.BckBtn.TabIndex = 0;
 			this.BckBtn.Text = "BACK";
 			this.BckBtn.UseVisualStyleBackColor = true;
@@ -54,6 +61,7 @@ namespace Laro
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(51)))), ((int)(((byte)(53)))));
 			this.ClientSize = new System.Drawing.Size(1369, 667);
 			this.Controls.Add(this.BckBtn);
 			this.Name = "Form1";

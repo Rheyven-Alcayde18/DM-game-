@@ -41,7 +41,6 @@ namespace Laro
             this.Close();
             frmmain.Show(); // why label? hinamit ko na label to be clickable to be much presentable, it acts like a button and allows you to go back to the main form.
             
-            
         }
     }
 }

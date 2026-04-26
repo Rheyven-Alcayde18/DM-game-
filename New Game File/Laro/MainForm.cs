@@ -16,7 +16,7 @@ namespace Laro
 		void StrtButtonClick(object sender, EventArgs e)
 		{
 			//Start Button creates a new form for creating a new game or continuing the old one
-			Form Form1 = new Form1();
+			Form Form1 = new GameSelection();
 			this.Hide();
 			Form1.Show();
 			

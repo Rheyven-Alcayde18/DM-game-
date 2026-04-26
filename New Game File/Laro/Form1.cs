@@ -15,9 +15,9 @@ namespace Laro
 	/// <summary>
 	/// Description of Form1.
 	/// </summary>
-	public partial class Form1 : Form
+	public partial class GameSelection : Form
 	{
-		public Form1()
+		public GameSelection()
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -36,7 +36,10 @@ namespace Laro
 		}
 		void NewGameClick(object sender, EventArgs e)
 		{
-	
+			//Game Start Form Generate
+			Form Form2 = new Form2();
+			Form2.Show();
+			this.Close();
 		}
 		void ContinueClick(object sender, EventArgs e)
 		{

@@ -15,5 +15,9 @@ namespace Laro
         {
             InitializeComponent();
         }
+		void Form4Load(object sender, EventArgs e)
+		{
+	
+		}
     }
 }

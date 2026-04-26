@@ -15,5 +15,12 @@ namespace Laro
         {
             InitializeComponent();
         }
+		void ClassHallClick(object sender, EventArgs e)
+		{
+			Form Form3 = new Form3();
+			Form3.Show();
+			this.Close();
+		}
+		
     }
 }

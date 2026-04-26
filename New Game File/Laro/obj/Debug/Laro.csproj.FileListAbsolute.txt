@@ -21,7 +21,6 @@ E:\C# Projects\DM-game-\New Game File\Laro\bin\Debug\Laro.exe.config
 E:\C# Projects\DM-game-\New Game File\Laro\bin\Debug\Laro.exe
 E:\C# Projects\DM-game-\New Game File\Laro\bin\Debug\Laro.pdb
 E:\C# Projects\DM-game-\New Game File\Laro\obj\Debug\Laro.csprojResolveAssemblyReference.cache
-E:\C# Projects\DM-game-\New Game File\Laro\obj\Debug\Laro.Form1.resources
 E:\C# Projects\DM-game-\New Game File\Laro\obj\Debug\Laro.frmCredits.resources
 E:\C# Projects\DM-game-\New Game File\Laro\obj\Debug\Laro.MainForm.resources
 E:\C# Projects\DM-game-\New Game File\Laro\obj\Debug\Laro.csproj.GenerateResource.Cache
@@ -30,3 +29,7 @@ E:\C# Projects\DM-game-\New Game File\Laro\obj\Debug\Laro.pdb
 C:\Users\Rheyven Alcayde\OneDrive\Documents\DM-game--main\New Game File\Laro\bin\Debug\Laro.exe.config
 C:\Users\Rheyven Alcayde\OneDrive\Documents\DM-game--main\New Game File\Laro\obj\Debug\Laro.exe
 C:\Users\Rheyven Alcayde\OneDrive\Documents\DM-game--main\New Game File\Laro\obj\Debug\Laro.pdb
+E:\C# Projects\DM-game-\New Game File\Laro\obj\Debug\Laro.Form2.resources
+E:\C# Projects\DM-game-\New Game File\Laro\obj\Debug\Laro.GameSelection.resources
+E:\C# Projects\DM-game-\New Game File\Laro\obj\Debug\Laro.Form3.resources
+E:\C# Projects\DM-game-\New Game File\Laro\obj\Debug\Laro.Form4.resources

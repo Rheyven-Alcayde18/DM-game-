@@ -8,7 +8,7 @@
  */
 namespace Laro
 {
-	partial class Form1
+	partial class GameSelection
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -39,7 +39,7 @@ namespace Laro
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameSelection));
 			this.BckBtn = new System.Windows.Forms.Button();
 			this.NewGame = new System.Windows.Forms.Button();
 			this.Continue = new System.Windows.Forms.Button();
@@ -65,6 +65,7 @@ namespace Laro
 			// 
 			this.NewGame.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NewGame.BackgroundImage")));
 			this.NewGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.NewGame.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NewGame.FlatAppearance.BorderSize = 0;
 			this.NewGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.NewGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -81,6 +82,7 @@ namespace Laro
 			// 
 			this.Continue.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Continue.BackgroundImage")));
 			this.Continue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.Continue.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.Continue.FlatAppearance.BorderSize = 0;
 			this.Continue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.Continue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -93,7 +95,7 @@ namespace Laro
 			this.Continue.UseVisualStyleBackColor = true;
 			this.Continue.Click += new System.EventHandler(this.ContinueClick);
 			// 
-			// Form1
+			// GameSelection
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,9 +104,10 @@ namespace Laro
 			this.Controls.Add(this.Continue);
 			this.Controls.Add(this.NewGame);
 			this.Controls.Add(this.BckBtn);
-			this.Name = "Form1";
+			this.Name = "GameSelection";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form1";
+			
 			this.ResumeLayout(false);
 
 		}

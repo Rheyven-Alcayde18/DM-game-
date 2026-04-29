@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
         	System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLec5));
-        	this.label1 = new System.Windows.Forms.Label();
+        	this.lblMonitor = new System.Windows.Forms.Label();
         	this.label2 = new System.Windows.Forms.Label();
         	this.SuspendLayout();
         	// 
-        	// label1
+        	// lblMonitor
         	// 
-        	this.label1.BackColor = System.Drawing.Color.Transparent;
-        	this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        	this.label1.Location = new System.Drawing.Point(657, 287);
-        	this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-        	this.label1.Name = "label1";
-        	this.label1.Size = new System.Drawing.Size(240, 51);
-        	this.label1.TabIndex = 2;
+        	this.lblMonitor.BackColor = System.Drawing.Color.Transparent;
+        	this.lblMonitor.Cursor = System.Windows.Forms.Cursors.Hand;
+        	this.lblMonitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        	this.lblMonitor.Location = new System.Drawing.Point(657, 287);
+        	this.lblMonitor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+        	this.lblMonitor.Name = "lblMonitor";
+        	this.lblMonitor.Size = new System.Drawing.Size(240, 51);
+        	this.lblMonitor.TabIndex = 2;
         	// 
         	// label2
         	// 
@@ -63,9 +64,9 @@
         	this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
         	this.ClientSize = new System.Drawing.Size(946, 547);
         	this.Controls.Add(this.label2);
-        	this.Controls.Add(this.label1);
+        	this.Controls.Add(this.lblMonitor);
         	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-        	this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.Margin = new System.Windows.Forms.Padding(2);
         	this.Name = "frmLec5";
         	this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         	this.Text = "Form5";
@@ -75,7 +76,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblMonitor;
         private System.Windows.Forms.Label label2;
 
     }

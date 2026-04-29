@@ -55,7 +55,7 @@ namespace Laro
 			// 
 			this.lblTitle.Font = new System.Drawing.Font("Impact", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(193)))), ((int)(((byte)(78)))));
-			this.lblTitle.Location = new System.Drawing.Point(362, 115);
+			this.lblTitle.Location = new System.Drawing.Point(348, 112);
 			this.lblTitle.Name = "lblTitle";
 			this.lblTitle.Size = new System.Drawing.Size(439, 139);
 			this.lblTitle.TabIndex = 2;
@@ -125,7 +125,7 @@ namespace Laro
 			this.panel1.Controls.Add(this.button1);
 			this.panel1.Controls.Add(this.btnClose);
 			this.panel1.Location = new System.Drawing.Point(1, 0);
-			this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.panel1.Margin = new System.Windows.Forms.Padding(2);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(1117, 39);
 			this.panel1.TabIndex = 4;
@@ -136,7 +136,7 @@ namespace Laro
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button1.Location = new System.Drawing.Point(1022, 2);
-			this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.button1.Margin = new System.Windows.Forms.Padding(2);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(45, 35);
 			this.button1.TabIndex = 5;
@@ -150,7 +150,7 @@ namespace Laro
 			this.btnClose.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(51)))), ((int)(((byte)(53)))));
 			this.btnClose.Location = new System.Drawing.Point(1072, 2);
-			this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnClose.Margin = new System.Windows.Forms.Padding(2);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(45, 35);
 			this.btnClose.TabIndex = 5;

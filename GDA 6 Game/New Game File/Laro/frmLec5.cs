@@ -18,6 +18,7 @@ namespace Laro
 
         private void label2_Click(object sender, EventArgs e)
         {
+        	//Exit lec 5
             frmMainHall exitLec5 = new frmMainHall();
             exitLec5.Show();
             this.Close();

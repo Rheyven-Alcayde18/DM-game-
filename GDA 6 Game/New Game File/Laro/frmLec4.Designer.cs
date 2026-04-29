@@ -28,45 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Location = new System.Drawing.Point(528, 178);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(279, 143);
-            this.label1.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Location = new System.Drawing.Point(1000, 166);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 251);
-            this.label2.TabIndex = 1;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // frmLec4
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Laro.Properties.Resources._563056399_2715979162067309_861685042007999288_n;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1281, 699);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmLec4";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form4";
-            this.Load += new System.EventHandler(this.Form4Load);
-            this.ResumeLayout(false);
+        	this.label1 = new System.Windows.Forms.Label();
+        	this.label2 = new System.Windows.Forms.Label();
+        	this.SuspendLayout();
+        	// 
+        	// label1
+        	// 
+        	this.label1.BackColor = System.Drawing.Color.Transparent;
+        	this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        	this.label1.Location = new System.Drawing.Point(396, 145);
+        	this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+        	this.label1.Name = "label1";
+        	this.label1.Size = new System.Drawing.Size(209, 116);
+        	this.label1.TabIndex = 1;
+        	// 
+        	// label2
+        	// 
+        	this.label2.BackColor = System.Drawing.Color.Transparent;
+        	this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
+        	this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        	this.label2.Location = new System.Drawing.Point(750, 135);
+        	this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+        	this.label2.Name = "label2";
+        	this.label2.Size = new System.Drawing.Size(55, 204);
+        	this.label2.TabIndex = 1;
+        	this.label2.Click += new System.EventHandler(this.label2_Click);
+        	// 
+        	// frmLec4
+        	// 
+        	this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+        	this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        	this.BackgroundImage = global::Laro.Properties.Resources._563056399_2715979162067309_861685042007999288_n;
+        	this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+        	this.ClientSize = new System.Drawing.Size(961, 568);
+        	this.Controls.Add(this.label2);
+        	this.Controls.Add(this.label1);
+        	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+        	this.Name = "frmLec4";
+        	this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+        	this.Text = "Form4";
+        	this.Load += new System.EventHandler(this.Form4Load);
+        	this.ResumeLayout(false);
 
         }
 

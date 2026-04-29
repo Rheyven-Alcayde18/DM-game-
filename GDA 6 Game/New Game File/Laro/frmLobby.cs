@@ -24,6 +24,7 @@ namespace Laro
 
         private void btnLobby_Click(object sender, EventArgs e)
         {
+        	//Go to Class Hall
             Form Form3 = new frmMainHall();
             Form3.Show();
             this.Close();

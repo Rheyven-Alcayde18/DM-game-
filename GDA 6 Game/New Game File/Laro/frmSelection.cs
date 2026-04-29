@@ -30,6 +30,7 @@ namespace Laro
 		}
 		void BckBtnClick(object sender, EventArgs e)
 		{
+			//Back to Main Menu
 			Form MainForm = new MainForm();
 			MainForm.Show();
 			this.Close();

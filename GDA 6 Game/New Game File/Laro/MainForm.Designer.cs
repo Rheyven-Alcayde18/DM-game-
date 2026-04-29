@@ -73,9 +73,9 @@ namespace Laro
 			this.CrdtsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.CrdtsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.CrdtsBtn.ForeColor = System.Drawing.Color.White;
-			this.CrdtsBtn.Location = new System.Drawing.Point(471, 504);
+			this.CrdtsBtn.Location = new System.Drawing.Point(471, 495);
 			this.CrdtsBtn.Name = "CrdtsBtn";
-			this.CrdtsBtn.Size = new System.Drawing.Size(179, 139);
+			this.CrdtsBtn.Size = new System.Drawing.Size(179, 73);
 			this.CrdtsBtn.TabIndex = 3;
 			this.CrdtsBtn.Text = "CREDITS";
 			this.CrdtsBtn.UseVisualStyleBackColor = true;
@@ -92,9 +92,9 @@ namespace Laro
 			this.QuitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.QuitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.QuitBtn.ForeColor = System.Drawing.Color.White;
-			this.QuitBtn.Location = new System.Drawing.Point(471, 409);
+			this.QuitBtn.Location = new System.Drawing.Point(471, 420);
 			this.QuitBtn.Name = "QuitBtn";
-			this.QuitBtn.Size = new System.Drawing.Size(179, 139);
+			this.QuitBtn.Size = new System.Drawing.Size(179, 69);
 			this.QuitBtn.TabIndex = 1;
 			this.QuitBtn.Text = "QUIT";
 			this.QuitBtn.UseVisualStyleBackColor = true;
@@ -111,9 +111,9 @@ namespace Laro
 			this.StrtButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.StrtButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.StrtButton.ForeColor = System.Drawing.Color.White;
-			this.StrtButton.Location = new System.Drawing.Point(471, 313);
+			this.StrtButton.Location = new System.Drawing.Point(471, 342);
 			this.StrtButton.Name = "StrtButton";
-			this.StrtButton.Size = new System.Drawing.Size(179, 139);
+			this.StrtButton.Size = new System.Drawing.Size(179, 72);
 			this.StrtButton.TabIndex = 0;
 			this.StrtButton.Text = "START";
 			this.StrtButton.UseVisualStyleBackColor = true;

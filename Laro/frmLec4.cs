@@ -35,5 +35,11 @@ namespace Laro
             MessageBox.Show("This is a hint", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
+		void LblBoardClick(object sender, EventArgs e)
+		{
+			Form AnswerForm = new AnswerPanelLec4();
+			AnswerForm.Show();
+			this.Close();
+		}
     }
 }

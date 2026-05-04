@@ -79,3 +79,24 @@ C:\Users\Rheyven Alcayde\OneDrive\Documents\DM-game--main\GDA 6 Game\New Game Fi
 C:\Users\Rheyven Alcayde\OneDrive\Documents\DM-game--main\GDA 6 Game\New Game File\Laro\obj\Debug\Laro.frmLec2.resources
 C:\Users\Rheyven Alcayde\OneDrive\Documents\DM-game--main\GDA 6 Game\New Game File\Laro\obj\Debug\Laro.frmLab1.resources
 C:\Users\Rheyven Alcayde\OneDrive\Documents\DM-game--main\GDA 6 Game\New Game File\Laro\obj\Debug\Laro.frmLibrary.resources
+E:\C# Projects\DM-game-\Laro\bin\Debug\Laro.exe.config
+E:\C# Projects\DM-game-\Laro\bin\Debug\Laro.exe
+E:\C# Projects\DM-game-\Laro\bin\Debug\Laro.pdb
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.csprojResolveAssemblyReference.cache
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.frmCCSFaculty.resources
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.frmLab1.resources
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.frmLec5.resources
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.frmLec2.resources
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.frmLibrary.resources
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.frmLobby.resources
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.frmMainHall.resources
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.frmLec4.resources
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.frmCredits.resources
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.MainForm.resources
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.Properties.Resources.resources
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.csproj.GenerateResource.Cache
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.exe
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.pdb
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.AnswerPanelLec4.resources
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.frmname.resources
+E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.frmSelection.resources

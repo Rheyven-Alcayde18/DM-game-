@@ -1,4 +1,4 @@
-﻿/*
+﻿		/*
  * Created by SharpDevelop.
  * User: CJ
  * Date: 4/24/2026
@@ -15,9 +15,9 @@ namespace Laro
 	/// <summary>
 	/// Description of Form1.
 	/// </summary>
-	public partial class GameSelection : Form
+	public partial class frmSelection : Form
 	{
-		public GameSelection()
+		public frmSelection()
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.

@@ -17,16 +17,11 @@ namespace Laro
 	/// </summary>
 	public partial class AnswerPanelLec4 : Form
 	{
+		
 		public AnswerPanelLec4()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
 			InitializeComponent();
-			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
-		}
+        }
+
 	}
 }

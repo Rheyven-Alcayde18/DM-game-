@@ -83,7 +83,7 @@
         	this.Name = "frmLec4";
         	this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         	this.Text = "Form4";
-        	this.Load += new System.EventHandler(this.Form4Load);
+        	
         	this.ResumeLayout(false);
 
         }

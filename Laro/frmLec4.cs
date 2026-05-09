@@ -21,18 +21,18 @@ namespace Laro
         // ── Question data ─────────────────────────────────────────────
         private string[] questionTexts = new string[]
         {
-            "What is 2 + 2?",
-            "What color is the sky?",
-            "What is the capital of France?",
-            "How many sides does a triangle have?"
+            "What is a proposition",
+            "Si Rhey pa rin ba?",
+            "Saan ako nagkulang?",
+            "May pag-asa ba ko sa kaniya?"
         };
 
         private string[][] answerChoices = new string[][]
         {
-            new string[] { "3", "4", "5", "6" },
-            new string[] { "Green", "Red", "Blue", "Yellow" },
-            new string[] { "Berlin", "London", "Rome", "Paris" },
-            new string[] { "2", "3", "4", "5" }
+            new string[] { "geng", "ya", "g", "bro" },
+            new string[] { "Oo", "Hindi", "Pinagpalit na", "Wet Dreams" },
+            new string[] { "Sa Assurance", "Sa Pera", "Sa Kapogian", "Di ka lang mahal pre" },
+            new string[] { "Wala", "Tado", "Give up na", "Hanap na lang iba" }
         };
 
         // Zero-based index of the correct answer for each question

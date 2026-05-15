@@ -21,22 +21,32 @@ namespace Laro
         // ── Question data ─────────────────────────────────────────────
         private string[] questionTexts = new string[]
         {
-            "What is a proposition",
-            "Si Rhey pa rin ba?",
-            "Saan ako nagkulang?",
-            "May pag-asa ba ko sa kaniya?"
+            "_ is the basic building blocks of logic.",
+            "_ focuses on correct reasoning and relation.",
+            "This proposition uses " + @"""AND""" + "as a keyword.",
+            "_ quantified statements use phrases like " +  @"""FOR SOME"""+ @""", FOR ATLEAST ONE""" + "as keywords.",
+            "What symbol is used for conjunction (“AND”)?",
+            "What symbol represents disjunction (“OR”)?",
+            "What symbol is used for negation (“NOT”)?",
+            "What symbol represents implication (“IF…THEN”)?",
+            "What symbol is used for biconditional (“IF AND ONLY IF”)?"
         };
 
         private string[][] answerChoices = new string[][]
         {
-            new string[] { "geng", "ya", "g", "bro" },
-            new string[] { "Oo", "Hindi", "Pinagpalit na", "Wet Dreams" },
-            new string[] { "Sa Assurance", "Sa Pera", "Sa Kapogian", "Di ka lang mahal pre" },
-            new string[] { "Wala", "Tado", "Give up na", "Hanap na lang iba" }
+            new string[] { "Proposition", "Logic", "Statement", "Gossip" },
+            new string[] { "Proposition", "Logic", "Statement", "Argument" },
+            new string[] { "Disjunction", "Biconditional", "Conjunction", "Insection" },
+            new string[] { "Universally", "Existentially", "Critically", "Magically" },
+            new string[] { "∨", "¬", "∧", "→" },
+            new string[] { "∨", "↔", "∧", "→" },
+            new string[] { "→", "¬", "∃", "∀" },
+            new string[] { "↔", "∨", "→", "-|==>" },
+            new string[] { "↔", "→", "∧", "|" }
         };
 
         // Zero-based index of the correct answer for each question
-        private int[] correctAnswers = new int[] { 1, 2, 3, 1 };
+        private int[] correctAnswers = new int[] { 0, 1, 2, 1, 2, 0, 1, 2, 0};
 
         // ── Constructor ───────────────────────────────────────────────
         public frmLec4()
@@ -113,9 +123,9 @@ namespace Laro
             questionLabel.Location = new Point(30, 50);
 
             // ANSWER BUTTONS
-            answerButtons = new Button[4];
-            string[] prefixes = new string[] { "A", "B", "C", "D" };
-
+            answerButtons = new Button[4];//create buttons in runtime
+            string[] prefixes = new string[] { "A", "B", "C", "D" };//prefix before choices
+			//loop for creation of buttons
             for (int i = 0; i < 4; i++)
             {
                 answerButtons[i] = new Button();
@@ -216,15 +226,16 @@ namespace Laro
             }
         }
 
-        private void NextButton_Click(object sender, EventArgs e)
+        public void NextButton_Click(object sender, EventArgs e)
         {
             currentQuestion++;
 
             if (currentQuestion >= questionTexts.Length)
             {
-                MessageBox.Show("You've completed all questions!", "Done",
+                MessageBox.Show("You've completed all questions! A room has been unlocked!", "Done",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 HideChalkboardOverlay();
+                GameState.UnlockRoom("Lec5");
             }
             else
             {

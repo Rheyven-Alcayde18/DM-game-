@@ -54,6 +54,7 @@
     <Compile Include="AnswerPanelLec4.Designer.cs">
       <DependentUpon>AnswerPanelLec4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class1.cs" />
     <Compile Include="frmCCSFaculty.cs">
       <SubType>Form</SubType>
     </Compile>

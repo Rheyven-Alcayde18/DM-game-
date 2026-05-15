@@ -27,6 +27,7 @@ namespace Laro
         public frmLobby()	
         {
             InitializeComponent();
+            btnLobby.Visible = false;
             timer.Interval = 100; // Speed of text
 		    timer.Tick += Timer_Tick;
 		    timer.Start();
@@ -100,6 +101,7 @@ namespace Laro
 					DialogueBox.Visible = true;
 				    CharacterName.Visible = true;
 				    CharacterPic.Visible = true;
+				    btnLobby.Visible = true;
 				}
 			}
 			// Advance on click

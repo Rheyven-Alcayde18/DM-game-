@@ -30,7 +30,7 @@ namespace Laro
             { "Lec4",       false  },
             { "Lec5",       true  },
             { "Lab1",       true  },
-            { "CCSFaculty", true }, // example: starts unlocked
+            { "CCSFaculty", false }, // example: starts unlocked
             { "Library",    false },
         };
 
@@ -52,4 +52,8 @@ namespace Laro
                 RoomLocks[roomName] = true;
         }
     }
+	public static class Gender
+	{
+		public static string value = "";
+	}
 }

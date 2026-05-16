@@ -70,7 +70,7 @@
         	this.DialogueBox.ReadOnly = true;
         	this.DialogueBox.Size = new System.Drawing.Size(1116, 160);
         	this.DialogueBox.TabIndex = 3;
-        	this.DialogueBox.Text = "The dialoag shows here and clicks";
+        	this.DialogueBox.Text = "The dialogue shows here and clicks";
         	// 
         	// CharacterPic
         	// 

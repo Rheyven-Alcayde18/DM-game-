@@ -52,5 +52,14 @@ namespace Laro
 		{
 	
 		}
+		void RadioButton1CheckedChanged(object sender, EventArgs e)
+		{
+			Gender.value = "Male";
+		}
+		void FemaleCheckedChanged(object sender, EventArgs e)
+		{
+			Gender.value = "Female";
+		}
+		
 	}
 }

@@ -20,6 +20,9 @@ namespace Laro
 		private System.Windows.Forms.TextBox txtName;
 		private System.Windows.Forms.Button btnSubmit;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.RadioButton Female;
+		private System.Windows.Forms.RadioButton Male;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -48,7 +51,11 @@ namespace Laro
 			this.txtName = new System.Windows.Forms.TextBox();
 			this.btnSubmit = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.Female = new System.Windows.Forms.RadioButton();
+			this.Male = new System.Windows.Forms.RadioButton();
 			this.panel1.SuspendLayout();
+			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -96,7 +103,7 @@ namespace Laro
 			// 
 			this.txtName.AllowDrop = true;
 			this.txtName.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtName.Location = new System.Drawing.Point(418, 369);
+			this.txtName.Location = new System.Drawing.Point(418, 158);
 			this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.txtName.Multiline = true;
 			this.txtName.Name = "txtName";
@@ -108,7 +115,7 @@ namespace Laro
 			this.btnSubmit.BackColor = System.Drawing.Color.Lime;
 			this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnSubmit.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSubmit.Location = new System.Drawing.Point(559, 410);
+			this.btnSubmit.Location = new System.Drawing.Point(580, 323);
 			this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btnSubmit.Name = "btnSubmit";
 			this.btnSubmit.Size = new System.Drawing.Size(87, 28);
@@ -121,12 +128,49 @@ namespace Laro
 			// 
 			this.label1.Font = new System.Drawing.Font("Century Schoolbook", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-			this.label1.Location = new System.Drawing.Point(418, 342);
+			this.label1.Location = new System.Drawing.Point(418, 131);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(300, 23);
 			this.label1.TabIndex = 11;
 			this.label1.Text = "Enter character name:";
 			this.label1.Click += new System.EventHandler(this.Label1Click);
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+			this.groupBox1.Controls.Add(this.Female);
+			this.groupBox1.Controls.Add(this.Male);
+			this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLight;
+			this.groupBox1.Location = new System.Drawing.Point(418, 217);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(373, 100);
+			this.groupBox1.TabIndex = 12;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "groupBox1";
+			// 
+			// Female
+			// 
+			this.Female.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+			this.Female.Location = new System.Drawing.Point(27, 63);
+			this.Female.Name = "Female";
+			this.Female.Size = new System.Drawing.Size(104, 24);
+			this.Female.TabIndex = 1;
+			this.Female.TabStop = true;
+			this.Female.Text = "radioButton2";
+			this.Female.UseVisualStyleBackColor = false;
+			this.Female.CheckedChanged += new System.EventHandler(this.FemaleCheckedChanged);
+			// 
+			// Male
+			// 
+			this.Male.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+			this.Male.Location = new System.Drawing.Point(27, 23);
+			this.Male.Name = "Male";
+			this.Male.Size = new System.Drawing.Size(104, 24);
+			this.Male.TabIndex = 0;
+			this.Male.TabStop = true;
+			this.Male.Text = "radioButton1";
+			this.Male.UseVisualStyleBackColor = false;
+			this.Male.CheckedChanged += new System.EventHandler(this.RadioButton1CheckedChanged);
 			// 
 			// frmName
 			// 
@@ -134,6 +178,7 @@ namespace Laro
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
 			this.ClientSize = new System.Drawing.Size(1302, 821);
+			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.btnSubmit);
 			this.Controls.Add(this.txtName);
@@ -145,6 +190,7 @@ namespace Laro
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "name";
 			this.panel1.ResumeLayout(false);
+			this.groupBox1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

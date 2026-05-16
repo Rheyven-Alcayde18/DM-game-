@@ -56,4 +56,8 @@ namespace Laro
 	{
 		public static string value = "";
 	}
+	public static class User
+	{
+		public static string name = "";
+	}
 }

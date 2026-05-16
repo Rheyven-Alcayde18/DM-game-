@@ -105,10 +105,12 @@ namespace Laro
 			this.txtName.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtName.Location = new System.Drawing.Point(418, 158);
 			this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.txtName.MaxLength = 16;
 			this.txtName.Multiline = true;
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(373, 40);
 			this.txtName.TabIndex = 9;
+			this.txtName.TextChanged += new System.EventHandler(this.TxtNameTextChanged);
 			// 
 			// btnSubmit
 			// 
@@ -156,7 +158,7 @@ namespace Laro
 			this.Female.Size = new System.Drawing.Size(104, 24);
 			this.Female.TabIndex = 1;
 			this.Female.TabStop = true;
-			this.Female.Text = "radioButton2";
+			this.Female.Text = "Female";
 			this.Female.UseVisualStyleBackColor = false;
 			this.Female.CheckedChanged += new System.EventHandler(this.FemaleCheckedChanged);
 			// 
@@ -168,7 +170,7 @@ namespace Laro
 			this.Male.Size = new System.Drawing.Size(104, 24);
 			this.Male.TabIndex = 0;
 			this.Male.TabStop = true;
-			this.Male.Text = "radioButton1";
+			this.Male.Text = "Male";
 			this.Male.UseVisualStyleBackColor = false;
 			this.Male.CheckedChanged += new System.EventHandler(this.RadioButton1CheckedChanged);
 			// 

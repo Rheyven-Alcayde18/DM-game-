@@ -11,17 +11,16 @@ namespace Laro
 {
     public partial class frmLobby : Form
     {
-    	
     	string[] script = { " The school library was unsually quiet. ", "Only the sound of the electric fan and turning pages filled the room  ", "It was already past 11 PM Most students had gone home hours ago " +
-    		"But one student remained. " , "Books were scattered across the table. ", "His notebook was filled with scratched-out answers and question marks.", "His eyes grew heavier ", "The letters on the page began to blur.  ","And without realizing it…….Llamoso fell asleep."};//cutscene script
+    		"But one student remained. " , "Books were scattered across the table. ", "His notebook was filled with scratched-out answers and question marks.", "His eyes grew heavier ", "The letters on the page began to blur.  ","And without realizing it……." + User.name + " fell asleep."};//cutscene script
 		int sceneIndex = 0;//cutscene index
 		int charIndex = 0;//cutscene char index
 		Timer timer = new Timer();
 		string[] mcdialogue = { " *yawn* Aughhh …Why does Discrete Mathematics even exist?", "Propositions… truth tables… logical connectives…   ", "I swear these things are plotting against me " +
     		"Tomorrow is the final exam…  ", "…and I still feel like I understand absolutely nothing. ", "If I fail this subject, I’m finished. ", "Okay… one last review. "," If P then Q… ","…why does this sound like a threat?", "Maybe just five more minutes…  "};//cutscene script
-		int mcIndex = 0;//cutscene index
+		/*int mcIndex = 0;//cutscene index
 		int mccharIndex = 0;//cutscene char index
-		Timer mctimer = new Timer();
+		Timer mctimer = new Timer();*/
 		
 		
         public frmLobby()	

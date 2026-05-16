@@ -6,11 +6,6 @@ using System.Drawing.Drawing2D;
 
 namespace Laro
 {
-    // ─────────────────────────────────────────────────────────────────────────
-    //  frmLab1  –  Truth-Table Puzzle
-    //  Drop this file into your project and wire up LblMonitorClick / LblBoardClick
-    //  exactly the way frmLec5 does it (call ShowTruthTableOverlay()).
-    // ─────────────────────────────────────────────────────────────────────────
     public partial class frmLab1 : Form
     {
         // ── Overlay controls ──────────────────────────────────────────────────

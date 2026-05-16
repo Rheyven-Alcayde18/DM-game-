@@ -42,11 +42,26 @@ namespace Laro
 		}
 		void BtnSubmitClick(object sender, EventArgs e)
 		{
-			
-			Form Selection = new frmSelection();
-			Selection.Show();
-			this.Hide();
-			
+			// Check if name is empty
+		    if (string.IsNullOrWhiteSpace(txtName.Text))
+		    {
+		        MessageBox.Show("Please enter your character name.", "Missing Name", 
+		                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+		        return;
+		    }
+		    // Check if no gender is selected
+		    if (string.IsNullOrEmpty(Gender.value))
+		    {
+		        MessageBox.Show("Please select a gender.", "Missing Gender", 
+		                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+		        return;
+		    }
+		
+		    // All fields filled — proceed
+		    MessageBox.Show("Username: " + User.name, "Username");
+		    Form Selection = new frmSelection();
+		    Selection.Show();
+		    this.Hide();
 		}
 		void Label1Click(object sender, EventArgs e)
 		{
@@ -59,6 +74,10 @@ namespace Laro
 		void FemaleCheckedChanged(object sender, EventArgs e)
 		{
 			Gender.value = "Female";
+		}
+		void TxtNameTextChanged(object sender, EventArgs e)
+		{
+			User.name = txtName.Text;
 		}
 		
 	}

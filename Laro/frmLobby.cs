@@ -238,7 +238,7 @@ namespace Laro
                 new DialogueLine(
                     "Narrator",
                     "His eyes grew heavier. The letters on the page began to blur. Without realizing it……. Llamoso fell asleep."
-                ),
+                )/*,
                 new DialogueLine(
                     "Mysterious Voice",
                     "Perhaps because you have not yet understood what P and Q are trying to tell you."
@@ -246,7 +246,7 @@ namespace Laro
                 new DialogueLine(
                     "Alex",
                     "W-what?! Who said that?!"
-                ),
+                ),*/
             };
         }
 

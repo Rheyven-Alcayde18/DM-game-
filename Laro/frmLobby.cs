@@ -142,6 +142,7 @@ namespace Laro
             _pnlDialogue.Visible = true;
             _pnlDialogue.BringToFront();
             AdvanceLine();
+            CharacterPic.Visible  = true;
         }
 
         private void AdvanceLine()
@@ -191,6 +192,7 @@ namespace Laro
             _dialogueDone        = true;  // ← LOCK: prevents replay
 
             btnLobby.Visible = true;
+            CharacterPic.Visible  = false;
         }
 
         private void DialogueClick(object sender, EventArgs e)
@@ -291,7 +293,6 @@ namespace Laro
                 else
                 {
                     Cutscene.Hide();
-                    CharacterPic.Visible  = true;
                     DialogueBox.Visible   = false;
                     CharacterName.Visible = false;
 

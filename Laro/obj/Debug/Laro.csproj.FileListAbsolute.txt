@@ -100,3 +100,24 @@ E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.frmname.resources
 E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.frmSelection.resources
 E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.frmLec5.resources
 E:\C# Projects\DM-game-\Laro\obj\Debug\Laro.frmCCSFaculty.resources
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\bin\Debug\Laro.exe.config
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\bin\Debug\Laro.exe
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\bin\Debug\Laro.pdb
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.csprojResolveAssemblyReference.cache
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.AnswerPanelLec4.resources
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.frmCCSFaculty.resources
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.frmLab1.resources
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.frmLec5.resources
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.frmLec2.resources
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.frmLibrary.resources
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.frmSelection.resources
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.frmLobby.resources
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.frmMainHall.resources
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.frmLec4.resources
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.frmCredits.resources
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.MainForm.resources
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.frmName.resources
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.Properties.Resources.resources
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.csproj.GenerateResource.Cache
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.exe
+C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.pdb

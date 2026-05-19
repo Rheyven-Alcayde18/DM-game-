@@ -237,7 +237,7 @@ namespace Laro
                 ),
                 new DialogueLine(
                     "Narrator",
-                    "His eyes grew heavier. The letters on the page began to blur. Without realizing it……. Llamoso fell asleep."
+                    "His eyes grew heavier. The letters on the page began to blur. Without realizing it……. He fell asleep."
                 )/*,
                 new DialogueLine(
                     "Mysterious Voice",

@@ -117,7 +117,7 @@ namespace Laro
 			this.btnSubmit.BackColor = System.Drawing.Color.Lime;
 			this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnSubmit.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSubmit.Location = new System.Drawing.Point(580, 323);
+			this.btnSubmit.Location = new System.Drawing.Point(565, 324);
 			this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.btnSubmit.Name = "btnSubmit";
 			this.btnSubmit.Size = new System.Drawing.Size(87, 28);
@@ -148,7 +148,7 @@ namespace Laro
 			this.groupBox1.Size = new System.Drawing.Size(373, 100);
 			this.groupBox1.TabIndex = 12;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "groupBox1";
+			this.groupBox1.Text = "Choose Gender:";
 			// 
 			// Female
 			// 
@@ -176,7 +176,7 @@ namespace Laro
 			// 
 			// frmName
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
 			this.ClientSize = new System.Drawing.Size(1302, 821);
@@ -195,7 +195,6 @@ namespace Laro
 			this.groupBox1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
-
 		}
 	}
 }

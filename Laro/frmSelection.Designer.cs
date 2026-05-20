@@ -16,7 +16,6 @@ namespace Laro
 		private System.ComponentModel.IContainer components = null;
 		private System.Windows.Forms.Button BckBtn;
 		private System.Windows.Forms.Button NewGame;
-		private System.Windows.Forms.Button Continue;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -40,7 +39,6 @@ namespace Laro
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSelection));
-			this.Continue = new System.Windows.Forms.Button();
 			this.NewGame = new System.Windows.Forms.Button();
 			this.BckBtn = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
@@ -48,23 +46,6 @@ namespace Laro
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// Continue
-			// 
-			this.Continue.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Continue.BackgroundImage")));
-			this.Continue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.Continue.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.Continue.FlatAppearance.BorderSize = 0;
-			this.Continue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.Continue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Continue.ForeColor = System.Drawing.Color.White;
-			this.Continue.Location = new System.Drawing.Point(430, 379);
-			this.Continue.Name = "Continue";
-			this.Continue.Size = new System.Drawing.Size(284, 90);
-			this.Continue.TabIndex = 2;
-			this.Continue.Text = "Continue";
-			this.Continue.UseVisualStyleBackColor = true;
-			this.Continue.Click += new System.EventHandler(this.ContinueClick);
 			// 
 			// NewGame
 			// 
@@ -75,9 +56,10 @@ namespace Laro
 			this.NewGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.NewGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.NewGame.ForeColor = System.Drawing.Color.White;
-			this.NewGame.Location = new System.Drawing.Point(430, 264);
+			this.NewGame.Location = new System.Drawing.Point(568, 375);
+			this.NewGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.NewGame.Name = "NewGame";
-			this.NewGame.Size = new System.Drawing.Size(284, 89);
+			this.NewGame.Size = new System.Drawing.Size(379, 110);
 			this.NewGame.TabIndex = 1;
 			this.NewGame.Text = "New Game";
 			this.NewGame.UseVisualStyleBackColor = true;
@@ -91,9 +73,10 @@ namespace Laro
 			this.BckBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.BckBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BckBtn.ForeColor = System.Drawing.Color.White;
-			this.BckBtn.Location = new System.Drawing.Point(10, 566);
+			this.BckBtn.Location = new System.Drawing.Point(13, 697);
+			this.BckBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.BckBtn.Name = "BckBtn";
-			this.BckBtn.Size = new System.Drawing.Size(130, 44);
+			this.BckBtn.Size = new System.Drawing.Size(173, 54);
 			this.BckBtn.TabIndex = 0;
 			this.BckBtn.Text = "BACK";
 			this.BckBtn.UseVisualStyleBackColor = true;
@@ -105,10 +88,10 @@ namespace Laro
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
-			this.button1.Location = new System.Drawing.Point(1016, 2);
-			this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.button1.Location = new System.Drawing.Point(1355, 2);
+			this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(45, 35);
+			this.button1.Size = new System.Drawing.Size(60, 43);
 			this.button1.TabIndex = 5;
 			this.button1.Text = "-";
 			this.button1.UseVisualStyleBackColor = true;
@@ -120,10 +103,10 @@ namespace Laro
 			this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnClose.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
-			this.btnClose.Location = new System.Drawing.Point(1066, 2);
-			this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnClose.Location = new System.Drawing.Point(1421, 2);
+			this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnClose.Name = "btnClose";
-			this.btnClose.Size = new System.Drawing.Size(45, 35);
+			this.btnClose.Size = new System.Drawing.Size(60, 43);
 			this.btnClose.TabIndex = 5;
 			this.btnClose.Text = "X";
 			this.btnClose.UseVisualStyleBackColor = true;
@@ -134,29 +117,28 @@ namespace Laro
 			this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
 			this.panel1.Controls.Add(this.button1);
 			this.panel1.Controls.Add(this.btnClose);
-			this.panel1.Location = new System.Drawing.Point(2, 0);
-			this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.panel1.Location = new System.Drawing.Point(3, 0);
+			this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1117, 39);
+			this.panel1.Size = new System.Drawing.Size(1489, 48);
 			this.panel1.TabIndex = 5;
 			// 
 			// frmSelection
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-			this.ClientSize = new System.Drawing.Size(1116, 667);
+			this.ClientSize = new System.Drawing.Size(1488, 821);
 			this.Controls.Add(this.panel1);
-			this.Controls.Add(this.Continue);
 			this.Controls.Add(this.NewGame);
 			this.Controls.Add(this.BckBtn);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.Name = "frmSelection";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Selection";
 			this.panel1.ResumeLayout(false);
 			this.ResumeLayout(false);
-
 		}
 
         private System.Windows.Forms.Button button1;

@@ -42,10 +42,8 @@ namespace Laro
 			Form2.Show();
 			this.Close();
 		}
-		void ContinueClick(object sender, EventArgs e)
-		{
 	
-		}
+		
 
         private void button1_Click(object sender, EventArgs e)
         {

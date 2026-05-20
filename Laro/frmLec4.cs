@@ -64,7 +64,7 @@ namespace Laro
 
         private void lblClue_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This is a hint", "Information",
+            MessageBox.Show("Hint: The topics are from Module 1 of Discrete Mathematics Lesson 1", "Information",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

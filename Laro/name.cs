@@ -43,7 +43,7 @@ namespace Laro
 		void BtnSubmitClick(object sender, EventArgs e)
 		{
 			// Check if name is empty
-		    if (string.IsNullOrWhiteSpace(txtName.Text))
+		    if (string.IsNullOrWhiteSpace(txtName.Text)||txtName.Text == "Enter character name here...")
 		    {
 		        MessageBox.Show("Please enter your character name.", "Missing Name", 
 		                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -63,10 +63,6 @@ namespace Laro
 		    Selection.Show();
 		    this.Hide();
 		}
-		void Label1Click(object sender, EventArgs e)
-		{
-	
-		}
 		void RadioButton1CheckedChanged(object sender, EventArgs e)
 		{
 			Gender.value = "Male";
@@ -78,6 +74,23 @@ namespace Laro
 		void TxtNameTextChanged(object sender, EventArgs e)
 		{
 			User.name = txtName.Text;
+		}
+		void FrmNameLoad(object sender, EventArgs e)
+		{
+			if(txtName.Text=="")
+			{
+				txtName.Text = "Enter character name here...";
+			}
+		}
+		void TxtNameEnter(object sender, EventArgs e)
+		{
+			if(txtName.Text == "Enter character name here...")
+				txtName.Text = "";
+		}
+		void TxtNameLeave(object sender, EventArgs e)
+		{
+			if(txtName.Text=="")
+				txtName.Text = "Enter character name here...";
 		}
 		
 	}

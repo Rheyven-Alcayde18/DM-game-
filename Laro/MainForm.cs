@@ -57,6 +57,19 @@ namespace Laro
         {
             this.WindowState = FormWindowState.Minimized;
         }
+		void CheckBox1CheckedChanged(object sender, EventArgs e)
+		{
+			if (MusicPlayer.Checked)
+			{
+				MusicPlayer.Text = "Stop";
+				SoundManager.BackGroundMusicPlay();
+			}
+			else
+			{
+				MusicPlayer.Text = "Start";
+				SoundManager.BackGroundMusicStop();
+			}
+		}
 		
 	}
 }

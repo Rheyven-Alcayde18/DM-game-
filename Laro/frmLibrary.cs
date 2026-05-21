@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace Laro
 {
@@ -16,9 +17,11 @@ namespace Laro
             InitializeComponent();
         }
 
-        private void lblExit_Click(object sender, EventArgs e)
+        private async void lblExit_Click(object sender, EventArgs e)
         {
             //Exit Lib
+            SoundManager.PlayDoorSound();
+        	await Task.Delay(500);
             frmMainHall exitLib = new frmMainHall();
             exitLib.Show();
             this.Close();

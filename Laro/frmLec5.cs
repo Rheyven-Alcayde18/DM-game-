@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Text;
 using System.Windows.Forms;
 
@@ -57,8 +58,10 @@ namespace Laro
         }
 
         // ── Existing back-button handler ──────────────────────────────
-        private void label2_Click(object sender, EventArgs e)
+        private async void label2_Click(object sender, EventArgs e)
         {
+        	SoundManager.PlayDoorSound();
+        	await Task.Delay(500);
             frmMainHall exitLec5 = new frmMainHall();
             exitLec5.Show();
             this.Close();

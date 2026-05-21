@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-
+using System.Threading.Tasks;
 namespace Laro
 {
 	// ── frmCCSFaculty ────────────────────────────────────────────
@@ -357,8 +357,10 @@ namespace Laro
         // ─────────────────────────────────────────────────────────
         //  EXISTING HANDLERS
         // ─────────────────────────────────────────────────────────
-        private void lblExit_Click(object sender, EventArgs e)
+        private async void lblExit_Click(object sender, EventArgs e)
         {
+        	SoundManager.PlayDoorSound();
+        	await Task.Delay(500);
             frmMainHall exitFaculty = new frmMainHall();
             exitFaculty.Show();
             this.Close();
@@ -366,24 +368,9 @@ namespace Laro
 
         void CharacterCcsClick(object sender, EventArgs e)
         {
-            var introLines = new List<DialogueLine>
-            {
-                new DialogueLine("Prof. Santos",
-                    "Ah, good morning! You must be the new student assistant for the CCS department. I have been expecting you."),
-                new DialogueLine("Student",
-                    "Good morning, Professor Santos! Yes, I am Alex. I was not sure which office to go to — this building is a bit confusing."),
-                new DialogueLine("Prof. Santos",
-                    "Ha! That happens to everyone. Come in and sit down. We have quite a bit to discuss about your duties this semester."),
-                new DialogueLine("Student",
-                    "Of course, Professor. I already reviewed the student handbook. Is there anything specific you would like me to prioritize?"),
-                new DialogueLine("Prof. Santos",
-                    "Sharp thinking — I like that. But before I trust you with lab access, I need to know you are serious. Let me test your logic fundamentals."),
-                new DialogueLine("Prof. Santos",
-                    "The chalkboard over there has a set of questions. Answer them all correctly and I will personally endorse your clearance. Good luck, Alex."),
-            };
-
+            
             // When intro ends → show chalkboard quiz
-            StartDialogue(introLines, onEnd: ShowChalkboardOverlay);
+            StartDialogue(DialogueScript.CcsFacultyDialogueStart(), onEnd: ShowChalkboardOverlay);
         }
 
         // ─────────────────────────────────────────────────────────
@@ -392,7 +379,7 @@ namespace Laro
         private void ShowChalkboardOverlay()
         {
             _currentQuestion = 0;
-
+	 
             // DIM OVERLAY
             _overlayPanel          = new Panel();
             _overlayPanel.Size     = this.ClientSize;
@@ -652,24 +639,8 @@ namespace Laro
         // ─────────────────────────────────────────────────────────
         private void ShowCompletionDialogue()
         {
-            var completionLines = new List<DialogueLine>
-            {
-                new DialogueLine("Prof. Santos",
-                    "Remarkable! You have answered every question. I did not expect you to get through that so quickly, Alex."),
-                new DialogueLine("Student",
-                    "Thank you, Professor! Honestly, the last few were tricky — especially the ones about tautologies and quantifiers."),
-                new DialogueLine("Prof. Santos",
-                    "Those are precisely the concepts that trip up even second-year students. You clearly studied well."),
-                new DialogueLine("Prof. Santos",
-                    "I am endorsing your lab access effective immediately. You are cleared for Tuesdays and Thursdays, as we discussed."),
-                new DialogueLine("Student",
-                    "I really appreciate it, Professor. I will not let you down. I will be early on Tuesday to set everything up."),
-                new DialogueLine("Prof. Santos",
-                    "I know you will. Welcome to the College of Computer Studies, Alex. A new room has been unlocked for you."),
-            };
-
             // When completion dialogue ends → unlock next room
-            StartDialogue(completionLines, onEnd: () =>
+            StartDialogue(DialogueScript.CcsFacultyDialogueEnd(), onEnd: () =>
             {
                 GameState.UnlockRoom("CCSLibrary"); // adjust room name as needed
             });

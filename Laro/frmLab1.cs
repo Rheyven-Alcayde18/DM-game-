@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
-
+using System.Threading.Tasks;
 namespace Laro
 {
     public partial class frmLab1 : Form
@@ -160,8 +160,10 @@ namespace Laro
             InitializeComponent();
         }
 
-        private void lblExit_Click(object sender, EventArgs e)
+        private async void lblExit_Click(object sender, EventArgs e)
         {
+        	SoundManager.PlayDoorSound();
+        	await Task.Delay(500);
             frmMainHall exitLab1 = new frmMainHall();
             exitLab1.Show();
             this.Close();

@@ -142,6 +142,7 @@ namespace Laro
             _pnlDialogue.Visible = true;
             _pnlDialogue.BringToFront();
             AdvanceLine();
+            CharacterPic.Visible  = true;
         }
 
         private void AdvanceLine()
@@ -191,6 +192,7 @@ namespace Laro
             _dialogueDone        = true;  // ← LOCK: prevents replay
 
             btnLobby.Visible = true;
+            CharacterPic.Visible  = false;
         }
 
         private void DialogueClick(object sender, EventArgs e)
@@ -207,49 +209,6 @@ namespace Laro
         //  Format: new DialogueLine("Speaker Name", "What they say")
         //  Add or remove lines freely — the system handles the rest.
         // ══════════════════════════════════════════════════════════
-        private List<DialogueLine> GetLobbyDialogue()
-        {
-            return new List<DialogueLine>
-            {
-                new DialogueLine(
-                    User.name,
-                    "*yawn* Aughhh... Why does Discrete Mathematics even exist?"
-                ),
-                new DialogueLine(
-                    User.name,
-                    "Propositions... truth tables... logical connectives... I swear these things are plotting against me."
-                ),
-                new DialogueLine(
-                    User.name,
-                    "Tomorrow is the final exam... and I still feel like I understand absolutely nothing."
-                ),
-                new DialogueLine(
-                    "Narrator",
-                    "Books were scattered across the table. His notebook was filled with scratched-out answers and question marks."
-                ),
-                new DialogueLine(
-                    User.name,
-                    "If I fail this subject, I'm finished. Okay… one last review. If P then Q…"
-                ),
-                new DialogueLine(
-                    User.name,
-                    "…why does this sound like a threat? Maybe just five more minutes… "
-                ),
-                new DialogueLine(
-                    "Narrator",
-                    "His eyes grew heavier. The letters on the page began to blur. Without realizing it……. He fell asleep."
-                )/*,
-                new DialogueLine(
-                    "Mysterious Voice",
-                    "Perhaps because you have not yet understood what P and Q are trying to tell you."
-                ),
-                new DialogueLine(
-                    "Alex",
-                    "W-what?! Who said that?!"
-                ),*/
-            };
-        }
-
         // ══════════════════════════════════════════════════════════
         //  CUTSCENE SYSTEM
         // ══════════════════════════════════════════════════════════
@@ -291,11 +250,10 @@ namespace Laro
                 else
                 {
                     Cutscene.Hide();
-                    CharacterPic.Visible  = true;
                     DialogueBox.Visible   = false;
                     CharacterName.Visible = false;
 
-                    StartDialogue(GetLobbyDialogue());
+                    StartDialogue(DialogueScript.LobbyDialogue());
                 }
             }
         }

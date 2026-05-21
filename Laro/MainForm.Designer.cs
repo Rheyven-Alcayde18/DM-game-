@@ -48,7 +48,13 @@ namespace Laro
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.button1 = new System.Windows.Forms.Button();
 			this.btnClose = new System.Windows.Forms.Button();
+			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.MusicPlayer = new System.Windows.Forms.CheckBox();
 			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+			this.splitContainer1.Panel1.SuspendLayout();
+			this.splitContainer1.Panel2.SuspendLayout();
+			this.splitContainer1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// lblTitle
@@ -75,9 +81,9 @@ namespace Laro
 			this.CrdtsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.CrdtsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.CrdtsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
-			this.CrdtsBtn.Location = new System.Drawing.Point(471, 495);
+			this.CrdtsBtn.Location = new System.Drawing.Point(13, 3);
 			this.CrdtsBtn.Name = "CrdtsBtn";
-			this.CrdtsBtn.Size = new System.Drawing.Size(179, 59);
+			this.CrdtsBtn.Size = new System.Drawing.Size(56, 55);
 			this.CrdtsBtn.TabIndex = 3;
 			this.CrdtsBtn.Text = "CREDITS";
 			this.CrdtsBtn.UseVisualStyleBackColor = false;
@@ -129,7 +135,7 @@ namespace Laro
 			this.panel1.Controls.Add(this.button1);
 			this.panel1.Controls.Add(this.btnClose);
 			this.panel1.Location = new System.Drawing.Point(1, 0);
-			this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.panel1.Margin = new System.Windows.Forms.Padding(2);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(1117, 8);
 			this.panel1.TabIndex = 4;
@@ -140,7 +146,7 @@ namespace Laro
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button1.Location = new System.Drawing.Point(1022, 2);
-			this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.button1.Margin = new System.Windows.Forms.Padding(2);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(45, 35);
 			this.button1.TabIndex = 5;
@@ -155,13 +161,43 @@ namespace Laro
 			this.btnClose.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
 			this.btnClose.Location = new System.Drawing.Point(1072, 2);
-			this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnClose.Margin = new System.Windows.Forms.Padding(2);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(45, 35);
 			this.btnClose.TabIndex = 5;
 			this.btnClose.Text = "X";
 			this.btnClose.UseVisualStyleBackColor = true;
 			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+			// 
+			// splitContainer1
+			// 
+			this.splitContainer1.BackColor = System.Drawing.Color.Transparent;
+			this.splitContainer1.Location = new System.Drawing.Point(957, 28);
+			this.splitContainer1.Name = "splitContainer1";
+			// 
+			// splitContainer1.Panel1
+			// 
+			this.splitContainer1.Panel1.Controls.Add(this.MusicPlayer);
+			// 
+			// splitContainer1.Panel2
+			// 
+			this.splitContainer1.Panel2.Controls.Add(this.CrdtsBtn);
+			this.splitContainer1.Size = new System.Drawing.Size(147, 65);
+			this.splitContainer1.SplitterDistance = 71;
+			this.splitContainer1.TabIndex = 5;
+			// 
+			// MusicPlayer
+			// 
+			this.MusicPlayer.Appearance = System.Windows.Forms.Appearance.Button;
+			this.MusicPlayer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.MusicPlayer.Location = new System.Drawing.Point(11, 7);
+			this.MusicPlayer.Name = "MusicPlayer";
+			this.MusicPlayer.Size = new System.Drawing.Size(50, 46);
+			this.MusicPlayer.TabIndex = 0;
+			this.MusicPlayer.Text = "Play";
+			this.MusicPlayer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.MusicPlayer.UseVisualStyleBackColor = true;
+			this.MusicPlayer.CheckedChanged += new System.EventHandler(this.CheckBox1CheckedChanged);
 			// 
 			// MainForm
 			// 
@@ -171,8 +207,8 @@ namespace Laro
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(1116, 667);
+			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.panel1);
-			this.Controls.Add(this.CrdtsBtn);
 			this.Controls.Add(this.lblTitle);
 			this.Controls.Add(this.QuitBtn);
 			this.Controls.Add(this.StrtButton);
@@ -183,6 +219,10 @@ namespace Laro
 			this.Text = "Discrete Math";
 			this.Load += new System.EventHandler(this.MainFormLoad);
 			this.panel1.ResumeLayout(false);
+			this.splitContainer1.Panel1.ResumeLayout(false);
+			this.splitContainer1.Panel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+			this.splitContainer1.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -190,5 +230,7 @@ namespace Laro
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.CheckBox MusicPlayer;
 	}
 }

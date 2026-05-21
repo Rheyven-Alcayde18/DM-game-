@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace Laro
 {
@@ -55,8 +56,10 @@ namespace Laro
         }
 
         // ── Existing handlers ─────────────────────────────────────────
-        private void label2_Click(object sender, EventArgs e)
+        private async void label2_Click(object sender, EventArgs e)
         {
+        	SoundManager.PlayDoorSound();
+            await Task.Delay(500);
             frmMainHall exitLec4 = new frmMainHall();
             exitLec4.Show();
             this.Close();

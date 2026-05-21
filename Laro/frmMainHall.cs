@@ -6,12 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Media;
+using System.Threading.Tasks;
 
 namespace Laro
 {
     public partial class frmMainHall : Form
     {
-    	
         public frmMainHall()
         {
             InitializeComponent();
@@ -20,16 +21,18 @@ namespace Laro
 		{
 	
 		}
-        private void lblLec4_Click_1(object sender, EventArgs e)
+        private async void lblLec4_Click_1(object sender, EventArgs e)
         {
         	
             //Go to Lec 4
+            SoundManager.PlayDoorSound();
+            await Task.Delay(500);
             frmLec4 Lec4 = new frmLec4();
             Lec4.Show();
             this.Close();
         }
 
-        private void lblLec5_Click(object sender, EventArgs e)
+        private async void lblLec5_Click(object sender, EventArgs e)
         {
         	if (GameState.IsLocked("Lec5"))
 		    {
@@ -38,12 +41,14 @@ namespace Laro
 		        return;
 		    }
             //Go to Lec5
+            SoundManager.PlayDoorSound();
+            await Task.Delay(500);
             Form Lec5 = new frmLec5();
             Lec5.Show();
             this.Close();
         }
 
-        private void lblLec2_Click_1(object sender, EventArgs e)
+        private async void lblLec2_Click_1(object sender, EventArgs e)
         {
         	if (GameState.IsLocked("Lec2"))
 		    {
@@ -52,12 +57,14 @@ namespace Laro
 		        return;
 		    }
         	
+        	SoundManager.PlayDoorSound();
+            await Task.Delay(500);
             Form Lec2 = new frmLec2();
             Lec2.Show();
             this.Close();
         }
 
-        private void lblLab1_Click_1(object sender, EventArgs e)
+        private async void lblLab1_Click_1(object sender, EventArgs e)
         {
         	if (GameState.IsLocked("Lab1"))
 		    {
@@ -65,12 +72,14 @@ namespace Laro
 		                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
 		        return;
 		    }
+        	SoundManager.PlayDoorSound();
+        	await Task.Delay(500);
             Form Lab1 = new frmLab1();
             Lab1.Show();
             this.Close();
         }
 
-        private void lblCCSFaculty_Click_1(object sender, EventArgs e)
+        private async void lblCCSFaculty_Click_1(object sender, EventArgs e)
         {
         	if (GameState.IsLocked("CCSFaculty"))
 		    {
@@ -78,13 +87,17 @@ namespace Laro
 		                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
 		        return;
 		    }
+        	SoundManager.PlayDoorSound();
+        	await Task.Delay(500);
             Form CCSFaculty = new frmCCSFaculty();
             CCSFaculty.Show();
             this.Close();
         }
 
-        private void lblLibrary_Click(object sender, EventArgs e)
+        private async void lblLibrary_Click(object sender, EventArgs e)
         {
+        	SoundManager.PlayDoorSound();
+        	await Task.Delay(500);
             Form Library = new frmLibrary();
             Library.Show();
             this.Close();

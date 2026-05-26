@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+        	this.components = new System.ComponentModel.Container();
         	System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLec5));
         	this.lblMonitor = new System.Windows.Forms.Label();
         	this.label2 = new System.Windows.Forms.Label();
+        	this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
         	this.SuspendLayout();
         	// 
         	// lblMonitor
@@ -43,6 +45,7 @@
         	this.lblMonitor.Name = "lblMonitor";
         	this.lblMonitor.Size = new System.Drawing.Size(240, 59);
         	this.lblMonitor.TabIndex = 2;
+        	this.toolTip1.SetToolTip(this.lblMonitor, "A computer. It is the only one working.");
         	this.lblMonitor.Click += new System.EventHandler(this.LblMonitorClick);
         	// 
         	// label2
@@ -79,6 +82,7 @@
 
         private System.Windows.Forms.Label lblMonitor;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolTip toolTip1;
 
     }
 }

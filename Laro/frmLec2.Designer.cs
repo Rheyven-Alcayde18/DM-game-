@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+        	this.components = new System.ComponentModel.Container();
         	System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLec2));
         	this.lblExit = new System.Windows.Forms.Label();
         	this.lblBboard = new System.Windows.Forms.Label();
+        	this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
         	this.SuspendLayout();
         	// 
         	// lblExit
@@ -53,6 +55,7 @@
         	this.lblBboard.Name = "lblBboard";
         	this.lblBboard.Size = new System.Drawing.Size(390, 154);
         	this.lblBboard.TabIndex = 0;
+        	this.toolTip1.SetToolTip(this.lblBboard, "A blackboard. It has the same writings as the ones in Lec 4.");
         	this.lblBboard.Click += new System.EventHandler(this.lblBboard_Click);
         	// 
         	// frmLec2
@@ -77,5 +80,6 @@
 
         private System.Windows.Forms.Label lblExit;
         private System.Windows.Forms.Label lblBboard;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

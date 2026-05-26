@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+        	this.components = new System.ComponentModel.Container();
         	System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLab1));
         	this.lblExit = new System.Windows.Forms.Label();
         	this.lblBoard = new System.Windows.Forms.Label();
+        	this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
         	this.SuspendLayout();
         	// 
         	// lblExit
@@ -53,6 +55,7 @@
         	this.lblBoard.Name = "lblBoard";
         	this.lblBoard.Size = new System.Drawing.Size(695, 332);
         	this.lblBoard.TabIndex = 0;
+        	this.toolTip1.SetToolTip(this.lblBoard, "A huge screen. Maybe it\'s working.");
         	this.lblBoard.Click += new System.EventHandler(this.LblBoardClick);
         	// 
         	// frmLab1
@@ -65,7 +68,7 @@
         	this.Controls.Add(this.lblBoard);
         	this.Controls.Add(this.lblExit);
         	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-        	this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.Margin = new System.Windows.Forms.Padding(2);
         	this.Name = "frmLab1";
         	this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         	this.Text = "frmLab1";
@@ -77,5 +80,6 @@
 
         private System.Windows.Forms.Label lblExit;
         private System.Windows.Forms.Label lblBoard;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

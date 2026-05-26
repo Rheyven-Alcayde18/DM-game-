@@ -19,6 +19,8 @@ namespace Laro
         private Button[] answerButtons;
         private Button nextButton;
         private int currentQuestion = 0;
+        private int score = 0;              // tracks correct answers
+        private const int PASS_SCORE = 6;  // minimum correct answers to unlock (out of 9)
 
         // ── Question data ─────────────────────────────────────────────
         private string[] questionTexts = new string[]
@@ -48,7 +50,7 @@ namespace Laro
             new string[] { "Proposition", "Not Proposition" }
         };
 
-        // 0 = True is correct, 1 = False is correct
+        // 0 = Proposition is correct, 1 = Not Proposition is correct
         private int[] correctAnswers = new int[] { 0, 1, 1, 0, 1, 1, 0, 1, 0 };
 
         // ── Constructor ───────────────────────────────────────────────
@@ -67,10 +69,6 @@ namespace Laro
             this.Close();
         }
 
-        // ── Wire this to whichever control is the "highlighted computer" ──
-        //    In the Designer: select the PictureBox / Label / Panel,
-        //    set its Name to e.g. picComputer, then in Events double-click Click.
-        //    Or call ShowChalkboardOverlay() from any existing click handler.
         void LblComputerClick(object sender, EventArgs e)
         {
             ShowChalkboardOverlay();
@@ -80,6 +78,7 @@ namespace Laro
         private void ShowChalkboardOverlay()
         {
             currentQuestion = 0;
+            score = 0;              // reset score each time the quiz is opened
 
             // ── DIM OVERLAY ───────────────────────────────────────────
             overlayPanel = new TransparentPanel(Color.FromArgb(180, 0, 0, 0));
@@ -93,18 +92,17 @@ namespace Laro
             monitorPanel.Location = new Point(
                 (overlayPanel.Width  - mW) / 2,
                 (overlayPanel.Height - mH) / 2);
-            monitorPanel.BackColor = Color.FromArgb(28, 28, 32);   // near-black plastic
+            monitorPanel.BackColor = Color.FromArgb(28, 28, 32);
             monitorPanel.Paint += new PaintEventHandler(MonitorBezel_Paint);
 
             // ── SCREEN AREA (glowing blue-tinted display) ─────────────
-            // Leave bezel padding: 18px sides, 40px top (for title bar), 55px bottom (for stand)
             int scrPad = 18;
             int titleBarH = 32;
             int standH = 55;
             screenPanel = new Panel();
             screenPanel.Size = new Size(mW - scrPad * 2, mH - titleBarH - scrPad - standH);
             screenPanel.Location = new Point(scrPad, titleBarH);
-            screenPanel.BackColor = Color.FromArgb(10, 18, 30);    // deep navy screen
+            screenPanel.BackColor = Color.FromArgb(10, 18, 30);
             screenPanel.Paint += new PaintEventHandler(Screen_Paint);
 
             // ── TITLE BAR inside bezel (above screen) ─────────────────
@@ -128,7 +126,7 @@ namespace Laro
             // ── CLOSE BUTTON (red dot) ────────────────────────────────
             Button closeBtn = new Button();
             closeBtn.Size = new Size(13, 13);
-            closeBtn.Location = new Point(mW - 80, 9);  // aligned with red dot
+            closeBtn.Location = new Point(mW - 80, 9);
             closeBtn.FlatStyle = FlatStyle.Flat;
             closeBtn.BackColor = Color.Transparent;
             closeBtn.FlatAppearance.BorderSize = 0;
@@ -144,6 +142,15 @@ namespace Laro
             questionNumLabel.BackColor = Color.Transparent;
             questionNumLabel.AutoSize = true;
             questionNumLabel.Location = new Point(20, 14);
+
+            // ── SCORE LABEL ───────────────────────────────────────────
+            Label scoreLabel = new Label();
+            scoreLabel.Name = "lblScore";
+            scoreLabel.Font = new Font("Consolas", 9, FontStyle.Regular);
+            scoreLabel.ForeColor = Color.FromArgb(0, 220, 130);
+            scoreLabel.BackColor = Color.Transparent;
+            scoreLabel.AutoSize = true;
+            scoreLabel.Location = new Point(screenPanel.Width - 160, 14);
 
             // ── PROMPT prefix (like a terminal cursor line) ────────────
             Label promptLabel = new Label();
@@ -165,9 +172,6 @@ namespace Laro
             questionLabel.Size = new Size(580, 90);
             questionLabel.Location = new Point(20, 68);
 
-            // ── DIVIDER LINE painted on screen (via Screen_Paint) ─────
-            // (drawn in Screen_Paint at y=168)
-
             // ── FEEDBACK LABEL ────────────────────────────────────────
             Label feedbackLabel = new Label();
             feedbackLabel.Name = "lblFeedback";
@@ -179,13 +183,13 @@ namespace Laro
             feedbackLabel.TextAlign = ContentAlignment.MiddleCenter;
             feedbackLabel.Visible = false;
 
-            // ── TRUE / FALSE BUTTONS ──────────────────────────────────
+            // ── PROPOSITION / NOT PROPOSITION BUTTONS ────────────────
             answerButtons = new Button[2];
             string[] btnLabels   = new string[] { "PROPOSITION", "NOT PROPOSITION" };
             Color[]  btnBaseCol  = new Color[]
             {
-                Color.FromArgb(15, 80, 50),    // green tint for TRUE
-                Color.FromArgb(80, 20, 20)     // red tint for FALSE
+                Color.FromArgb(15, 80, 50),    // green tint for PROPOSITION
+                Color.FromArgb(80, 20, 20)     // red tint for NOT PROPOSITION
             };
             Color[]  btnHoverCol = new Color[]
             {
@@ -203,7 +207,7 @@ namespace Laro
 
             for (int i = 0; i < 2; i++)
             {
-                int idx = i; // capture for lambda
+                int idx = i;
                 answerButtons[i] = new Button();
                 answerButtons[i].Size = new Size(btnW, btnH);
                 answerButtons[i].Location = new Point(xPos[i], startY);
@@ -240,6 +244,7 @@ namespace Laro
 
             // ── ASSEMBLE: screen contents ─────────────────────────────
             screenPanel.Controls.Add(questionNumLabel);
+            screenPanel.Controls.Add(scoreLabel);
             screenPanel.Controls.Add(promptLabel);
             screenPanel.Controls.Add(questionLabel);
             screenPanel.Controls.Add(feedbackLabel);
@@ -257,7 +262,6 @@ namespace Laro
             this.Controls.Add(overlayPanel);
             overlayPanel.BringToFront();
 
-            // Disable all form controls except the overlay
             foreach (Control ctrl in this.Controls)
                 if (ctrl != overlayPanel)
                     ctrl.Enabled = false;
@@ -271,6 +275,11 @@ namespace Laro
             if (numLabel != null)
                 numLabel.Text = "// Question " + (index + 1).ToString()
                                 + " of " + questionTexts.Length.ToString();
+
+            // Update live score display
+            Label scoreLabel = screenPanel.Controls["lblScore"] as Label;
+            if (scoreLabel != null)
+                scoreLabel.Text = "Score: " + score + "/" + questionTexts.Length;
 
             questionLabel.Text = "> " + questionTexts[index];
 
@@ -303,12 +312,14 @@ namespace Laro
 
             Label feedback = screenPanel.Controls["lblFeedback"] as Label;
 
+            // Disable all buttons after any answer
+            foreach (Button btn in answerButtons)
+                btn.Enabled = false;
+
             if (clickedIndex == correct)
             {
                 clicked.BackColor = Color.FromArgb(20, 160, 70);
-
-                foreach (Button btn in answerButtons)
-                    btn.Enabled = false;
+                score++;    // increment score on correct answer
 
                 if (feedback != null)
                 {
@@ -316,17 +327,11 @@ namespace Laro
                     feedback.ForeColor = Color.FromArgb(80, 220, 130);
                     feedback.Visible = true;
                 }
-
-                nextButton.Visible = true;
             }
             else
             {
                 clicked.BackColor = Color.FromArgb(160, 30, 30);
-
-                answerButtons[correct].BackColor = Color.FromArgb(20, 160, 70);
-
-                foreach (Button btn in answerButtons)
-                    btn.Enabled = false;
+                answerButtons[correct].BackColor = Color.FromArgb(20, 160, 70); // reveal correct answer
 
                 if (feedback != null)
                 {
@@ -334,9 +339,10 @@ namespace Laro
                     feedback.ForeColor = Color.FromArgb(230, 100, 100);
                     feedback.Visible = true;
                 }
-
-                nextButton.Visible = true;
             }
+
+            // Always show Next button regardless of right or wrong
+            nextButton.Visible = true;
         }
 
         public void NextButton_Click(object sender, EventArgs e)
@@ -345,10 +351,23 @@ namespace Laro
 
             if (currentQuestion >= questionTexts.Length)
             {
-                MessageBox.Show("You've completed all questions! A room has been unlocked!", "Done",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                HideChalkboardOverlay();
-                GameState.UnlockRoom("Lec2"); // adjust room name as needed
+                // Quiz finished — check if score meets the pass threshold
+                if (score >= PASS_SCORE)
+                {
+                    MessageBox.Show(
+                        "You passed with " + score + " out of " + questionTexts.Length + "!\nA room has been unlocked!",
+                        "Passed!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    HideChalkboardOverlay();
+                    GameState.UnlockRoom("Lec2");
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "You scored " + score + " out of " + questionTexts.Length + ".\n" +
+                        "You need at least " + PASS_SCORE + " correct to unlock the next room.\nTry again!",
+                        "Not Quite", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    HideChalkboardOverlay();
+                }
             }
             else
             {
@@ -449,14 +468,16 @@ namespace Laro
                 ctrl.Enabled = true;
 
             this.Controls.Remove(overlayPanel);
-            overlayPanel.Dispose(); // disposes monitorPanel and screenPanel (children)
+            overlayPanel.Dispose();
             overlayPanel = null;
             monitorPanel = null;
             screenPanel  = null;
         }
+
 		void LblMonitorClick(object sender, EventArgs e)
 		{
-			ShowChalkboardOverlay();		}
+			ShowChalkboardOverlay();
+		}
     }
 
     // ── Graphics extension for rounded rectangle ──────────────────────────────

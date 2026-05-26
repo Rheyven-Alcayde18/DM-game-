@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Threading.Tasks;
+
 namespace Laro
 {
     public partial class frmLab1 : Form
@@ -15,24 +16,16 @@ namespace Laro
 
         // ── Puzzle state ──────────────────────────────────────────────────────
         private int currentPuzzle = 0;
-
-        // Each puzzle:
-        //   Headers   – column names
-        //   Rows      – full truth table rows (P, Q, result …)
-        //   Blanks    – (row, col) pairs the player must fill in
-        //   FullCol   – index of the column the player must fill entirely
-        //               (-1 = none; the whole column is already blank in every row)
-        //
-        // Convention: null in a cell means "blank – player fills it".
-        // Non-null cells are shown as read-only labels.
+        private int score = 0;              // counts puzzles solved correctly
+        private const int PASS_SCORE = 3;  // minimum puzzles to pass (out of 5)
 
         private struct Puzzle
         {
             public string   Title;
-            public string   Description;      // shown under the prompt line
+            public string   Description;
             public string[] Headers;
-            public string[,] Rows;            // [row, col]; null = blank
-            public int      FullCol;          // column index the player fills entirely
+            public string[,] Rows;
+            public int      FullCol;
         }
 
         private Puzzle[] puzzles = new Puzzle[]
@@ -45,12 +38,12 @@ namespace Laro
                 Headers     = new string[] { "P", "Q", "P ∧ Q" },
                 Rows        = new string[,]
                 {
-                    { "T", "T", null  },   // null = blank
+                    { "T", "T", null  },
                     { "T", "F", null  },
                     { "F", "T", null  },
                     { "F", "F", null  }
                 },
-                FullCol = 2    // "P ∧ Q" column is the one the player fills
+                FullCol = 2
             },
 
             // ── Puzzle 1 ── P ∨ Q  (OR)  – mixed blanks
@@ -62,8 +55,8 @@ namespace Laro
                 Rows        = new string[,]
                 {
                     { "T",  "T",  null  },
-                    { "T",  null, "T"   },   // Q is also blank
-                    { null, "T",  "T"   },   // P is blank
+                    { "T",  null, "T"   },
+                    { null, "T",  "T"   },
                     { "F",  "F",  null  }
                 },
                 FullCol = 2
@@ -78,7 +71,7 @@ namespace Laro
                 Rows        = new string[,]
                 {
                     { "T", null },
-                    { null, "F" },   // P blank (answer: F → ¬P = T, but ¬P given = F means P=T … wait, let's keep it simple)
+                    { null, "F" },
                     { "F", null },
                     { null, "T" }
                 },
@@ -94,8 +87,8 @@ namespace Laro
                 Rows        = new string[,]
                 {
                     { "T", "T", null },
-                    { "T", null, "F" },   // Q blank (answer: F)
-                    { null, "T", "T" },   // P blank (answer: F)
+                    { "T", null, "F" },
+                    { null, "T", "T" },
                     { "F", "F", null }
                 },
                 FullCol = 2
@@ -109,16 +102,16 @@ namespace Laro
                 Headers     = new string[] { "P", "Q", "P ↔ Q" },
                 Rows        = new string[,]
                 {
-                    { "T", null, "T" },   // Q blank (answer: T)
+                    { "T", null, "T" },
                     { "T", "F", null },
-                    { "F", null, "F" },   // Q blank (answer: T)
+                    { "F", null, "F" },
                     { "F", "F", null }
                 },
                 FullCol = 2
             }
         };
 
-        // Correct answers parallel to puzzles[].Rows (null = pre-filled, non-null = answer)
+        // Correct answers parallel to puzzles[].Rows
         private string[][,] answers = new string[][,]
         {
             // Puzzle 0 – P ∧ Q
@@ -127,8 +120,8 @@ namespace Laro
             new string[,] { { null,null,"T" }, { null,"F",null }, { "F",null,null }, { null,null,"F" } },
             // Puzzle 2 – ¬P
             new string[,] { { null,"F" }, { "T",null }, { null,"T" }, { "F",null } },
-            // Puzzle 3 – P → Q
-            new string[,] { { null,null,"T" }, { null,"F",null }, { "F",null,null }, { null,null,"T" } },
+            // Puzzle 3 – P → Q  (* = accepts T or F, both yield T when Q=T)
+            new string[,] { { null,null,"T" }, { null,"F",null }, { "*",null,null }, { null,null,"T" } },
             // Puzzle 4 – P ↔ Q
             new string[,] { { null,"T",null }, { null,null,"F" }, { null,"T",null }, { null,null,"T" } }
         };
@@ -136,22 +129,22 @@ namespace Laro
         // Runtime: [row, col] → TextBox or null
         private TextBox[,] inputCells;
 
-        // Undo stack: each entry is (row, col, previousValue)
         private struct UndoEntry
-		{
-		    public int Row;
-		    public int Col;
-		    public string Prev;
-		
-		    public UndoEntry(int row, int col, string prev)
-		    {
-		        Row = row;
-		        Col = col;
-		        Prev = prev;
-		    }
-		}
+        {
+            public int Row;
+            public int Col;
+            public string Prev;
 
-		private Stack<UndoEntry> undoStack = new Stack<UndoEntry>();
+            public UndoEntry(int row, int col, string prev)
+            {
+                Row = row;
+                Col = col;
+                Prev = prev;
+            }
+        }
+
+        private Stack<UndoEntry> undoStack = new Stack<UndoEntry>();
+
         // ─────────────────────────────────────────────────────────────────────
         //  Constructor & back button
         // ─────────────────────────────────────────────────────────────────────
@@ -169,23 +162,23 @@ namespace Laro
             this.Close();
         }
 
-        // Wire this to your monitor / board click in the Designer
         void LblBoardClick(object sender, EventArgs e)
-		{
-		    ShowTruthTableOverlay();
-		}
-		
-		void LblMonitorClick(object sender, EventArgs e)
-		{
-		    ShowTruthTableOverlay();
-		}
+        {
+            ShowTruthTableOverlay();
+        }
+
+        void LblMonitorClick(object sender, EventArgs e)
+        {
+            ShowTruthTableOverlay();
+        }
 
         // ─────────────────────────────────────────────────────────────────────
-        //  Build the overlay (same monitor shell as frmLec5)
+        //  Build the overlay
         // ─────────────────────────────────────────────────────────────────────
         private void ShowTruthTableOverlay()
         {
             currentPuzzle = 0;
+            score = 0;              // reset score each time the activity is opened
             undoStack.Clear();
 
             // DIM OVERLAY
@@ -287,6 +280,16 @@ namespace Laro
             counter.Text      = "// Puzzle " + (idx + 1) + " of " + puzzles.Length;
             screenPanel.Controls.Add(counter);
 
+            // ── SCORE DISPLAY ─────────────────────────────────────────────────
+            Label scoreLbl    = new Label();
+            scoreLbl.AutoSize = true;
+            scoreLbl.Location = new Point(screenPanel.Width - 200, 32);
+            scoreLbl.Font     = new Font("Consolas", 9, FontStyle.Regular);
+            scoreLbl.ForeColor = Color.FromArgb(0, 220, 130);
+            scoreLbl.BackColor = Color.Transparent;
+            scoreLbl.Text     = "Solved: " + score + "/" + puzzles.Length;
+            screenPanel.Controls.Add(scoreLbl);
+
             // ── TITLE ─────────────────────────────────────────────────────────
             Label title       = new Label();
             title.AutoSize    = false;
@@ -356,7 +359,6 @@ namespace Laro
 
                     if (cellVal == null)
                     {
-                        // BLANK – editable TextBox
                         TextBox tb      = new TextBox();
                         tb.Size         = new Size(cellW, cellH);
                         tb.Location     = new Point(x, y);
@@ -366,7 +368,7 @@ namespace Laro
                         tb.BorderStyle  = BorderStyle.FixedSingle;
                         tb.TextAlign    = HorizontalAlignment.Center;
                         tb.MaxLength    = 1;
-                        tb.Tag          = new Point(r, c); // store position
+                        tb.Tag          = new Point(r, c);
                         tb.CharacterCasing = CharacterCasing.Upper;
 
                         tb.KeyPress    += TruthCell_KeyPress;
@@ -377,7 +379,6 @@ namespace Laro
                     }
                     else
                     {
-                        // PRE-FILLED – read-only label
                         Label lbl      = new Label();
                         lbl.AutoSize   = false;
                         lbl.Size       = new Size(cellW, cellH);
@@ -467,25 +468,16 @@ namespace Laro
         {
             char c = char.ToUpper(e.KeyChar);
             if (c != 'T' && c != 'F' && e.KeyChar != (char)Keys.Back)
-                e.Handled = true; // block everything else
+                e.Handled = true;
         }
 
         private void TruthCell_TextChanged(object sender, EventArgs e)
         {
             TextBox tb  = sender as TextBox;
             Point pos   = (Point)tb.Tag;
-            string prev = "";   // we record before-change; simplest: push every change
 
-            // Push current value before this change (we stored on KeyPress; here we
-            // push old value = whatever was there before the keystroke arrived).
-            // Since TextChanged fires after the change, "prev" is already gone.
-            // We push (row, col, oldValue) each time a character is added/removed.
-            // On undo we put the old value back; the stack records the NEW value so
-            // popping restores the previous.
-            // Simpler strategy: push AFTER change, store new value; undo replaces with "".
-            undoStack.Push(new UndoEntry(pos.X, pos.Y, tb.Text)); // record this state so undo can clear it
+            undoStack.Push(new UndoEntry(pos.X, pos.Y, tb.Text));
 
-            // Immediately hide feedback when the player edits
             Label feedback = screenPanel.Controls["lblFeedback"] as Label;
             if (feedback != null) feedback.Visible = false;
 
@@ -500,14 +492,12 @@ namespace Laro
         {
             if (undoStack.Count == 0) return;
 
-            // Pop last entry → clear that cell
             UndoEntry entry = undoStack.Pop();
+            int r = entry.Row;
+            int c = entry.Col;
 
-			int r = entry.Row;
-			int c = entry.Col;
             if (inputCells[r, c] != null)
             {
-                // Temporarily detach TextChanged so pushing to stack doesn't loop
                 inputCells[r, c].TextChanged -= TruthCell_TextChanged;
                 inputCells[r, c].Text = "";
                 inputCells[r, c].TextChanged += TruthCell_TextChanged;
@@ -536,7 +526,7 @@ namespace Laro
                 for (int c = 0; c < cols; c++)
                 {
                     TextBox tb = inputCells[r, c];
-                    if (tb == null) continue; // pre-filled
+                    if (tb == null) continue;
 
                     string expected = answers[currentPuzzle][r, c];
                     string entered  = tb.Text.Trim().ToUpper();
@@ -544,15 +534,20 @@ namespace Laro
                     if (entered == "")
                     {
                         allFilled = false;
-                        tb.BackColor = Color.FromArgb(60, 30, 0); // orange-warn
+                        tb.BackColor = Color.FromArgb(60, 30, 0);
                         continue;
                     }
 
-                    if (entered == expected)
-                        tb.BackColor = Color.FromArgb(0, 50, 30);  // green tint
+                    // "*" means any T or F is accepted (e.g. P → T is true for both P=T and P=F)
+                    bool isAccepted = (expected == "*")
+                        ? (entered == "T" || entered == "F")
+                        : (entered == expected);
+
+                    if (isAccepted)
+                        tb.BackColor = Color.FromArgb(0, 50, 30);
                     else
                     {
-                        tb.BackColor = Color.FromArgb(80, 10, 10); // red tint
+                        tb.BackColor = Color.FromArgb(80, 10, 10);
                         allCorrect   = false;
                     }
                 }
@@ -574,6 +569,8 @@ namespace Laro
 
             if (allCorrect)
             {
+                score++;    // increment score when puzzle is solved correctly
+
                 if (feedback != null)
                 {
                     feedback.Text      = "✓  All correct! Well done!";
@@ -590,6 +587,7 @@ namespace Laro
                     feedback.ForeColor = Color.FromArgb(230, 100, 100);
                     feedback.Visible   = true;
                 }
+                // Next button is NOT shown for wrong answers in Lab1 — player must fix them
             }
         }
 
@@ -599,12 +597,26 @@ namespace Laro
         private void NextBtn_Click(object sender, EventArgs e)
         {
             currentPuzzle++;
+
             if (currentPuzzle >= puzzles.Length)
             {
-                MessageBox.Show("You've completed all truth table puzzles!\nA room has been unlocked!",
-                    "Puzzle Complete!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                HideOverlay();
-                GameState.UnlockRoom("CCSFaculty"); // Room Name Unlock
+                // All puzzles done — check if enough were solved correctly
+                if (score >= PASS_SCORE)
+                {
+                    MessageBox.Show(
+                        "You solved " + score + " out of " + puzzles.Length + " puzzles correctly!\nA room has been unlocked!",
+                        "Passed!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    HideOverlay();
+                    GameState.UnlockRoom("CCSFaculty");
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "You solved " + score + " out of " + puzzles.Length + " puzzles correctly.\n" +
+                        "You need at least " + PASS_SCORE + " to unlock the next room.\nTry again!",
+                        "Not Quite", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    HideOverlay();
+                }
             }
             else
             {
@@ -629,7 +641,7 @@ namespace Laro
         }
 
         // ─────────────────────────────────────────────────────────────────────
-        //  Paint handlers (identical to frmLec5)
+        //  Paint handlers
         // ─────────────────────────────────────────────────────────────────────
         private void MonitorBezel_Paint(object sender, PaintEventArgs e)
         {

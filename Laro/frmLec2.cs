@@ -18,6 +18,8 @@ namespace Laro
         private Button[] answerButtons;
         private Button nextButton;
         private int currentQuestion = 0;
+        private int score = 0;              // tracks correct answers
+        private const int PASS_SCORE = 7;  // minimum correct answers to unlock (out of 10)
 
         // ── Question data ─────────────────────────────────────────────
         private string[] questionTexts = new string[]
@@ -160,6 +162,7 @@ namespace Laro
         private void ShowChalkboardOverlay()
         {
             currentQuestion = 0;
+            score = 0;              // reset score each time the quiz is opened
 
             overlayPanel = new Panel();
             overlayPanel.Size = this.ClientSize;
@@ -193,6 +196,14 @@ namespace Laro
             questionNumLabel.ForeColor = Color.FromArgb(180, 255, 255, 255);
             questionNumLabel.AutoSize = true;
             questionNumLabel.Location = new Point(30, 18);
+
+            // SCORE LABEL
+            Label scoreLbl = new Label();
+            scoreLbl.Name = "lblScore";
+            scoreLbl.Font = new Font("Segoe UI", 10, FontStyle.Italic);
+            scoreLbl.ForeColor = Color.FromArgb(180, 255, 255, 255);
+            scoreLbl.AutoSize = true;
+            scoreLbl.Location = new Point(chalkboardPanel.Width - 160, 18);
 
             // QUESTION LABEL
             questionLabel = new Label();
@@ -272,6 +283,7 @@ namespace Laro
             // ASSEMBLE
             chalkboardPanel.Controls.Add(closeBtn);
             chalkboardPanel.Controls.Add(questionNumLabel);
+            chalkboardPanel.Controls.Add(scoreLbl);
             chalkboardPanel.Controls.Add(questionLabel);
             chalkboardPanel.Controls.Add(instructionLabel);
             chalkboardPanel.Controls.Add(explanationLabel);
@@ -298,6 +310,11 @@ namespace Laro
             Label numLabel = chalkboardPanel.Controls["lblQuestionNum"] as Label;
             if (numLabel != null)
                 numLabel.Text = "Question " + (index + 1) + " of " + questionTexts.Length;
+
+            // Update live score display
+            Label scoreLabel = chalkboardPanel.Controls["lblScore"] as Label;
+            if (scoreLabel != null)
+                scoreLabel.Text = "Score: " + score + "/" + questionTexts.Length;
 
             questionLabel.Text = questionTexts[index];
 
@@ -329,12 +346,15 @@ namespace Laro
             Label result = chalkboardPanel.Controls["lblResult"] as Label;
             Label expl   = chalkboardPanel.Controls["lblExplanation"] as Label;
 
+            // Disable all buttons after any answer
             foreach (Button btn in answerButtons)
                 btn.Enabled = false;
 
             if (clickedIndex == correct)
             {
                 clicked.BackColor = Color.FromArgb(50, 200, 80);
+                score++;    // increment score on correct answer
+
                 if (result != null)
                 {
                     result.Text      = "✓  Correct!";
@@ -345,7 +365,7 @@ namespace Laro
             else
             {
                 clicked.BackColor                = Color.FromArgb(200, 60, 60);
-                answerButtons[correct].BackColor = Color.FromArgb(50, 200, 80);
+                answerButtons[correct].BackColor = Color.FromArgb(50, 200, 80); // reveal correct answer
                 if (result != null)
                 {
                     result.Text      = "✗  Incorrect!";
@@ -360,6 +380,7 @@ namespace Laro
                 expl.Visible = true;
             }
 
+            // Always show Next button regardless of right or wrong
             nextButton.Visible = true;
         }
 
@@ -369,10 +390,23 @@ namespace Laro
 
             if (currentQuestion >= questionTexts.Length)
             {
-                MessageBox.Show("You've completed all questions! A room has been unlocked!", "Done",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                HideChalkboardOverlay();
-                GameState.UnlockRoom("Lab1");
+                // Quiz finished — check if score meets the pass threshold
+                if (score >= PASS_SCORE)
+                {
+                    MessageBox.Show(
+                        "You passed with " + score + " out of " + questionTexts.Length + "!\nA room has been unlocked!",
+                        "Passed!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    HideChalkboardOverlay();
+                    GameState.UnlockRoom("Lab1");
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "You scored " + score + " out of " + questionTexts.Length + ".\n" +
+                        "You need at least " + PASS_SCORE + " correct to unlock the next room.\nTry again!",
+                        "Not Quite", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    HideChalkboardOverlay();
+                }
             }
             else
             {

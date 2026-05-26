@@ -17,10 +17,6 @@ namespace Laro
         {
             InitializeComponent();
         }
-		void Form3Load(object sender, EventArgs e)
-		{
-	
-		}
         private async void lblLec4_Click_1(object sender, EventArgs e)
         {
         	

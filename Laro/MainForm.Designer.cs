@@ -40,6 +40,7 @@ namespace Laro
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.lblTitle = new System.Windows.Forms.Label();
 			this.CrdtsBtn = new System.Windows.Forms.Button();
@@ -50,6 +51,8 @@ namespace Laro
 			this.btnClose = new System.Windows.Forms.Button();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.MusicPlayer = new System.Windows.Forms.CheckBox();
+			this.muteUnmute = new System.Windows.Forms.ImageList(this.components);
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
@@ -81,11 +84,10 @@ namespace Laro
 			this.CrdtsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.CrdtsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.CrdtsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
-			this.CrdtsBtn.Location = new System.Drawing.Point(13, 3);
+			this.CrdtsBtn.Location = new System.Drawing.Point(6, 4);
 			this.CrdtsBtn.Name = "CrdtsBtn";
-			this.CrdtsBtn.Size = new System.Drawing.Size(56, 55);
+			this.CrdtsBtn.Size = new System.Drawing.Size(76, 71);
 			this.CrdtsBtn.TabIndex = 3;
-			this.CrdtsBtn.Text = "CREDITS";
 			this.CrdtsBtn.UseVisualStyleBackColor = false;
 			this.CrdtsBtn.Click += new System.EventHandler(this.CrdtsBtn_Click);
 			// 
@@ -101,11 +103,12 @@ namespace Laro
 			this.QuitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.QuitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.QuitBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
-			this.QuitBtn.Location = new System.Drawing.Point(471, 437);
+			this.QuitBtn.Location = new System.Drawing.Point(443, 441);
 			this.QuitBtn.Name = "QuitBtn";
-			this.QuitBtn.Size = new System.Drawing.Size(179, 52);
+			this.QuitBtn.Size = new System.Drawing.Size(235, 66);
 			this.QuitBtn.TabIndex = 1;
 			this.QuitBtn.Text = "QUIT";
+			this.toolTip1.SetToolTip(this.QuitBtn, "Had enough math for today?");
 			this.QuitBtn.UseVisualStyleBackColor = false;
 			this.QuitBtn.Click += new System.EventHandler(this.QuitBtnClick);
 			// 
@@ -121,11 +124,12 @@ namespace Laro
 			this.StrtButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.StrtButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.StrtButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
-			this.StrtButton.Location = new System.Drawing.Point(471, 373);
+			this.StrtButton.Location = new System.Drawing.Point(443, 359);
 			this.StrtButton.Name = "StrtButton";
-			this.StrtButton.Size = new System.Drawing.Size(179, 58);
+			this.StrtButton.Size = new System.Drawing.Size(235, 73);
 			this.StrtButton.TabIndex = 0;
 			this.StrtButton.Text = "START";
+			this.toolTip1.SetToolTip(this.StrtButton, "Jump into the night!");
 			this.StrtButton.UseVisualStyleBackColor = false;
 			this.StrtButton.Click += new System.EventHandler(this.StrtButtonClick);
 			// 
@@ -172,7 +176,7 @@ namespace Laro
 			// splitContainer1
 			// 
 			this.splitContainer1.BackColor = System.Drawing.Color.Transparent;
-			this.splitContainer1.Location = new System.Drawing.Point(957, 28);
+			this.splitContainer1.Location = new System.Drawing.Point(892, 28);
 			this.splitContainer1.Name = "splitContainer1";
 			// 
 			// splitContainer1.Panel1
@@ -182,22 +186,41 @@ namespace Laro
 			// splitContainer1.Panel2
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.CrdtsBtn);
-			this.splitContainer1.Size = new System.Drawing.Size(147, 65);
-			this.splitContainer1.SplitterDistance = 71;
+			this.splitContainer1.Size = new System.Drawing.Size(188, 78);
+			this.splitContainer1.SplitterDistance = 90;
 			this.splitContainer1.TabIndex = 5;
 			// 
 			// MusicPlayer
 			// 
 			this.MusicPlayer.Appearance = System.Windows.Forms.Appearance.Button;
+			this.MusicPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.MusicPlayer.FlatAppearance.BorderSize = 0;
+			this.MusicPlayer.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+			this.MusicPlayer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+			this.MusicPlayer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+			this.MusicPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.MusicPlayer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.MusicPlayer.Location = new System.Drawing.Point(11, 7);
+			this.MusicPlayer.ImageIndex = 1;
+			this.MusicPlayer.ImageList = this.muteUnmute;
+			this.MusicPlayer.Location = new System.Drawing.Point(3, 3);
 			this.MusicPlayer.Name = "MusicPlayer";
-			this.MusicPlayer.Size = new System.Drawing.Size(50, 46);
-			this.MusicPlayer.TabIndex = 0;
-			this.MusicPlayer.Text = "Play";
+			this.MusicPlayer.Size = new System.Drawing.Size(76, 71);
+			this.MusicPlayer.TabIndex = 1;
 			this.MusicPlayer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.toolTip1.SetToolTip(this.MusicPlayer, "Let the music reverberate!");
 			this.MusicPlayer.UseVisualStyleBackColor = true;
 			this.MusicPlayer.CheckedChanged += new System.EventHandler(this.CheckBox1CheckedChanged);
+			// 
+			// muteUnmute
+			// 
+			this.muteUnmute.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("muteUnmute.ImageStream")));
+			this.muteUnmute.TransparentColor = System.Drawing.Color.Transparent;
+			this.muteUnmute.Images.SetKeyName(0, "sound_muted.png");
+			this.muteUnmute.Images.SetKeyName(1, "sound_unmuted.png");
+			// 
+			// toolTip1
+			// 
+			this.toolTip1.AutomaticDelay = 300;
 			// 
 			// MainForm
 			// 
@@ -232,5 +255,7 @@ namespace Laro
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.CheckBox MusicPlayer;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ImageList muteUnmute;
 	}
 }

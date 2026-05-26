@@ -28,33 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLibrary));
-            this.lblExit = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // lblExit
-            // 
-            this.lblExit.BackColor = System.Drawing.Color.Transparent;
-            this.lblExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblExit.Location = new System.Drawing.Point(621, 234);
-            this.lblExit.Name = "lblExit";
-            this.lblExit.Size = new System.Drawing.Size(225, 218);
-            this.lblExit.TabIndex = 2;
-            this.lblExit.Click += new System.EventHandler(this.lblExit_Click);
-            // 
-            // frmLibrary
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1470, 774);
-            this.Controls.Add(this.lblExit);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmLibrary";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmLibrary";
-            this.ResumeLayout(false);
+        	System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLibrary));
+        	this.lblExit = new System.Windows.Forms.Label();
+        	this.SuspendLayout();
+        	// 
+        	// lblExit
+        	// 
+        	this.lblExit.BackColor = System.Drawing.Color.Transparent;
+        	this.lblExit.Cursor = System.Windows.Forms.Cursors.Hand;
+        	this.lblExit.Location = new System.Drawing.Point(466, 190);
+        	this.lblExit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+        	this.lblExit.Name = "lblExit";
+        	this.lblExit.Size = new System.Drawing.Size(169, 177);
+        	this.lblExit.TabIndex = 2;
+        	this.lblExit.Click += new System.EventHandler(this.lblExit_Click);
+        	// 
+        	// frmLibrary
+        	// 
+        	this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+        	this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        	this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+        	this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+        	this.ClientSize = new System.Drawing.Size(1116, 667);
+        	this.Controls.Add(this.lblExit);
+        	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+        	this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.Name = "frmLibrary";
+        	this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+        	this.Text = "frmLibrary";
+        	this.ResumeLayout(false);
 
         }
 

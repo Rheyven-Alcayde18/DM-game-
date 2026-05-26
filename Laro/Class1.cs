@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Media;
+using System.IO;
 
 namespace Laro
 {
@@ -63,18 +64,24 @@ namespace Laro
 	}
 	public static class SoundManager
 	{
-		private static SoundPlayer _door = new SoundPlayer("Door Opening.wav");
-		private static SoundPlayer _music = new SoundPlayer("BGM2.wav");
+		private static SoundPlayer _door  = new SoundPlayer(
+        Path.Combine(Application.StartupPath, "Door Opening.wav"));
 
 	    public static void PlayDoorSound()
 	    {
 	        _door.Play();
 	    }
-	    public static void BackGroundMusicPlay()
+	}
+	public static class MusicManager
+	{
+		private static SoundPlayer _music = new SoundPlayer(
+	    Path.Combine(Application.StartupPath, "BGM2.wav"));
+		public static void BackGroundMusicPlay()
 	    {
-	    	_music.Play();
+	    	_music.SoundLocation = Path.Combine(Application.StartupPath, "BGM2.wav");
+	    	_music.PlayLooping();
 	    }
-	    public static void BackGroundMusicStop()
+		public static void BackGroundMusicStop()
 	    {
 	    	_music.Stop();
 	    }

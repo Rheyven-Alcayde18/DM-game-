@@ -34,6 +34,7 @@ namespace Laro
 		}
 		void MainFormLoad(object sender, EventArgs e)
 		{
+			MusicManager.BackGroundMusicPlay();
 		}
 
         private void CrdtsBtn_Click(object sender, EventArgs e)
@@ -61,13 +62,13 @@ namespace Laro
 		{
 			if (MusicPlayer.Checked)
 			{
-				MusicPlayer.Text = "Stop";
-				SoundManager.BackGroundMusicPlay();
+				MusicPlayer.ImageIndex = 0;
+				MusicManager.BackGroundMusicStop();
 			}
-			else
+			else if (!MusicPlayer.Checked)
 			{
-				MusicPlayer.Text = "Start";
-				SoundManager.BackGroundMusicStop();
+				MusicPlayer.ImageIndex = 1;
+				MusicManager.BackGroundMusicPlay();
 			}
 		}
 		

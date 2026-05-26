@@ -38,7 +38,7 @@
         	// 
         	this.lblExit.BackColor = System.Drawing.Color.Transparent;
         	this.lblExit.Cursor = System.Windows.Forms.Cursors.Hand;
-        	this.lblExit.Location = new System.Drawing.Point(755, 31);
+        	this.lblExit.Location = new System.Drawing.Point(762, 38);
         	this.lblExit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
         	this.lblExit.Name = "lblExit";
         	this.lblExit.Size = new System.Drawing.Size(261, 440);
@@ -60,7 +60,7 @@
         	this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         	this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
         	this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-        	this.ClientSize = new System.Drawing.Size(1102, 629);
+        	this.ClientSize = new System.Drawing.Size(1116, 667);
         	this.Controls.Add(this.characterCcs);
         	this.Controls.Add(this.lblExit);
         	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

@@ -185,6 +185,7 @@ namespace Laro
 			// 
 			// panel2
 			// 
+			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel2.Controls.Add(this.panel3);
 			this.panel2.Controls.Add(this.label1);
 			this.panel2.Controls.Add(this.btnSubmit);
@@ -197,7 +198,7 @@ namespace Laro
 			// 
 			// panel3
 			// 
-			this.panel3.Location = new System.Drawing.Point(3, 4);
+			this.panel3.Location = new System.Drawing.Point(2, 4);
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(404, 30);
 			this.panel3.TabIndex = 13;

@@ -95,7 +95,7 @@
         	this.btnLobby.Name = "btnLobby";
         	this.btnLobby.Size = new System.Drawing.Size(149, 29);
         	this.btnLobby.TabIndex = 6;
-        	this.btnLobby.Text = "HALL";
+        	this.btnLobby.Text = "Library";
         	this.btnLobby.UseVisualStyleBackColor = true;
         	this.btnLobby.Click += new System.EventHandler(this.btnLobby_Click);
         	// 

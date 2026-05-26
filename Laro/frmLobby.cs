@@ -266,7 +266,7 @@ namespace Laro
 
         private void btnLobby_Click(object sender, EventArgs e)
         {
-            Form Form3 = new frmMainHall();
+            Form Form3 = new frmLibrary();
             Form3.Show();
             this.Close();
         }

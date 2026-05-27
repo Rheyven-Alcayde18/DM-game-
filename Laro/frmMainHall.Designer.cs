@@ -147,6 +147,7 @@
         	this.Name = "frmMainHall";
         	this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         	this.Text = "Form3";
+        	this.Load += new System.EventHandler(this.FrmMainHallLoad);
         	this.ResumeLayout(false);
 
         }

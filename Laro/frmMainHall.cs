@@ -106,6 +106,13 @@ namespace Laro
             Lobby.Show();
             this.Close();
         }
-
+		void FrmMainHallLoad(object sender, EventArgs e)
+		{
+			this.BackgroundImage = Image.FromFile(
+	        @"E:\C# Projects\GDA 6 FINAL\Assets\1.png"
+		    );
+		
+		    this.BackgroundImageLayout = ImageLayout.Stretch;
+		}
     }
 }

@@ -58,5 +58,9 @@ namespace Laro
                 Application.Exit();
             }
         }
+		void FrmSelectionLoad(object sender, EventArgs e)
+		{
+			pictureBox1.Image = Image.FromFile(@"E:\C# Projects\GDA 6 FINAL\Assets\instructions.png");
+		}
 	}
 }

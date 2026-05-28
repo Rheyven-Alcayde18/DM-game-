@@ -36,6 +36,10 @@ namespace Laro
 		}
 		void MainFormLoad(object sender, EventArgs e)
 		{
+			if (AudioManager.isMuted)
+			{
+				MusicPlayer.ImageIndex = 0;
+			}
 		}
 
         private void CrdtsBtn_Click(object sender, EventArgs e)

@@ -156,6 +156,11 @@ namespace Laro
 
         void lblBboard_Click(object sender, EventArgs e)
         {
+        	if(GameState.Lec2Completed)
+        	{
+        		MessageBox.Show("You already completed this activity.", "Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        		return;
+        	}
             ShowChalkboardOverlay();
         }
 
@@ -271,7 +276,7 @@ namespace Laro
             nextButton.Text = "Next Question  ->";
             nextButton.Size = new Size(200, 40);
             nextButton.Location = new Point(chalkboardPanel.Width - 240,
-                                            chalkboardPanel.Height - 48);
+                                            chalkboardPanel.Height - 115);
             nextButton.FlatStyle = FlatStyle.Flat;
             nextButton.ForeColor = Color.White;
             nextButton.BackColor = Color.FromArgb(30, 120, 60);
@@ -291,6 +296,8 @@ namespace Laro
                 chalkboardPanel.Controls.Add(btn);
             chalkboardPanel.Controls.Add(resultLabel);
             chalkboardPanel.Controls.Add(nextButton);
+            nextButton.BringToFront();
+            nextButton.FlatAppearance.BorderSize = 2;
 
             this.Controls.Add(overlayPanel);
             this.Controls.Add(chalkboardPanel);
@@ -398,6 +405,7 @@ namespace Laro
                         "Passed!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     HideChalkboardOverlay();
                     GameState.UnlockRoom("Lab1");
+                    GameState.Lec2Completed = true;
                 }
                 else
                 {

@@ -30,8 +30,8 @@
         {
         	System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCCSFaculty));
         	this.lblExit = new System.Windows.Forms.Label();
-        	this.characterCcs = new System.Windows.Forms.PictureBox();
-        	((System.ComponentModel.ISupportInitialize)(this.characterCcs)).BeginInit();
+        	this.CharacterPic = new System.Windows.Forms.PictureBox();
+        	((System.ComponentModel.ISupportInitialize)(this.CharacterPic)).BeginInit();
         	this.SuspendLayout();
         	// 
         	// lblExit
@@ -45,14 +45,15 @@
         	this.lblExit.TabIndex = 1;
         	this.lblExit.Click += new System.EventHandler(this.lblExit_Click);
         	// 
-        	// characterCcs
+        	// CharacterPic
         	// 
-        	this.characterCcs.Location = new System.Drawing.Point(331, 294);
-        	this.characterCcs.Name = "characterCcs";
-        	this.characterCcs.Size = new System.Drawing.Size(100, 50);
-        	this.characterCcs.TabIndex = 2;
-        	this.characterCcs.TabStop = false;
-        	this.characterCcs.Click += new System.EventHandler(this.CharacterCcsClick);
+        	this.CharacterPic.BackColor = System.Drawing.Color.Transparent;
+        	this.CharacterPic.Location = new System.Drawing.Point(946, 258);
+        	this.CharacterPic.Name = "CharacterPic";
+        	this.CharacterPic.Size = new System.Drawing.Size(158, 260);
+        	this.CharacterPic.TabIndex = 2;
+        	this.CharacterPic.TabStop = false;
+        	this.CharacterPic.Visible = false;
         	// 
         	// frmCCSFaculty
         	// 
@@ -61,14 +62,15 @@
         	this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
         	this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
         	this.ClientSize = new System.Drawing.Size(1116, 667);
-        	this.Controls.Add(this.characterCcs);
+        	this.Controls.Add(this.CharacterPic);
         	this.Controls.Add(this.lblExit);
         	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         	this.Margin = new System.Windows.Forms.Padding(2);
         	this.Name = "frmCCSFaculty";
         	this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         	this.Text = "frmCCSFaculty";
-        	((System.ComponentModel.ISupportInitialize)(this.characterCcs)).EndInit();
+        	this.Load += new System.EventHandler(this.FrmCCSFacultyLoad);
+        	((System.ComponentModel.ISupportInitialize)(this.CharacterPic)).EndInit();
         	this.ResumeLayout(false);
 
         }
@@ -76,6 +78,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblExit;
-        private System.Windows.Forms.PictureBox characterCcs;
+        private System.Windows.Forms.PictureBox CharacterPic;
     }
 }

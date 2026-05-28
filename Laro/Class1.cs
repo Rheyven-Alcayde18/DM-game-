@@ -26,13 +26,19 @@ namespace Laro
     {
         // Dictionary to track lock state of each room
         // true = locked, false = unlocked
+        public static bool Lec4Completed = false;
+        public static bool Lec5Completed = false;
+        public static bool Lab1Completed = false;
+        public static bool Lec2Completed = false;
+        public static bool CCSfCompleted = false;
+        
         public static Dictionary<string, bool> RoomLocks = new Dictionary<string, bool>()
         {
             { "Lec2",       true  },
             { "Lec4",       false  }, //starts unlocked
             { "Lec5",       true  },
             { "Lab1",       true  },
-            { "CCSFaculty", true },
+            { "CCSFaculty", false },
             { "Library",    false }, //starts unlocked
         };
 
@@ -58,18 +64,127 @@ namespace Laro
 	{
 		public static string value = "";
 	}
+	public static class CharacterPortraits
+	{
+	    public static string Yawn()
+	    {
+	        if (Gender.value == "Female")
+	            return "Assets/FemaleCharacterYawn.png";
+	
+	        return "Assets/MaleCharacterYawn.png";
+	    }
+	
+	    public static string Frustration()
+	    {
+	        if (Gender.value == "Female")
+	            return "Assets/FCharacterfrustration.png";
+	
+	        return "Assets/MCharacterfrustration.png";
+	    }
+	
+	    public static string Review()
+	    {
+	        if (Gender.value == "Female")
+	            return "Assets/FcharacterReview.png";
+	
+	        return "Assets/MCharacterReview.png";
+	    }
+	    public static string Idle()
+	    {
+	    	if (Gender.value == "Female")
+	    		return "Assets/FemaleIdle.png";
+	    	return "Assets/MaleIdle.png";
+	    }
+	    public static string Shocked()
+	    {
+	    	if(Gender.value == "Female")
+	    		return "Assets/FemaleShocked.png";
+	    	return "Assets/MaleShocked.png";
+	    }
+	    public static string Questioning()
+	    {
+	    	if(Gender.value == "Female")
+	    		return "Assets/FemaleQuestioning.png";
+	    	return "Assets/MaleQuestioning.png";
+	    }
+	    public static string Determination()
+	    {
+	    	if(Gender.value == "Female")
+	    		return "Assets/FemaleDetermination.png";
+	    	return "Assets/MaleDetermination.png";
+	    }
+	}
+	public static class Pronouns
+	{
+	    public static string Subject()
+	    {
+	        // he / she
+	        if (Gender.value == "Female")
+	            return "she";
+	
+	        return "he";
+	    }
+	
+	    public static string Object()
+	    {
+	        // him / her
+	        if (Gender.value == "Female")
+	            return "her";
+	
+	        return "him";
+	    }
+	
+	    public static string Possessive()
+	    {
+	        // his / her
+	        if (Gender.value == "Female")
+	            return "her";
+	
+	        return "his";
+	    }
+	
+	    public static string SubjectCapital()
+	    {
+	        // He / She
+	        if (Gender.value == "Female")
+	            return "She";
+	
+	        return "He";
+	    }
+	
+	    public static string PossessiveCapital()
+	    {
+	        // His / Her
+	        if (Gender.value == "Female")
+	            return "Her";
+	
+	        return "His";
+	    }
+	}
 	public static class User
 	{
 		public static string name = "";
+	}
+	public static class AudioManager
+	{
+		public static bool isMuted = false;
 	}
 	public static class SoundManager
 	{
 		private static SoundPlayer _door  = new SoundPlayer(
         Path.Combine(Application.StartupPath, "Door Opening.wav"));
+		private static SoundPlayer _buttonAudio  = new SoundPlayer(
+        Path.Combine(Application.StartupPath, "ButtonClick.wav"));
 
 	    public static void PlayDoorSound()
 	    {
+	    	if(!AudioManager.isMuted)
 	        _door.Play();
+	    }
+	    public static void ButtonSound()
+	    {
+	    	if(!AudioManager.isMuted)
+	    		_buttonAudio.Play();
 	    }
 	}
 	public static class MusicManager
@@ -78,12 +193,34 @@ namespace Laro
 	    Path.Combine(Application.StartupPath, "BGM2.wav"));
 		public static void BackGroundMusicPlay()
 	    {
-	    	_music.SoundLocation = Path.Combine(Application.StartupPath, "BGM2.wav");
-	    	_music.PlayLooping();
+			if(!AudioManager.isMuted)
+			{
+		    	_music.SoundLocation = Path.Combine(Application.StartupPath, "BGM2.wav");
+		    	_music.PlayLooping();
+			}
 	    }
-		public static void BackGroundMusicStop()
+		
+	}
+	public class DialogueLine
+	{
+	    public string Speaker;
+	    public string Text;
+	    public string Portrait;
+	
+	    // WITH portrait
+	    public DialogueLine(string speaker, string text, string portrait)
 	    {
-	    	_music.Stop();
+	        Speaker = speaker;
+	        Text = text;
+	        Portrait = portrait;
+	    }
+	
+	    // WITHOUT portrait
+	    public DialogueLine(string speaker, string text)
+	    {
+	        Speaker = speaker;
+	        Text = text;
+	        Portrait = "";
 	    }
 	}
 	public static class DialogueScript
@@ -94,31 +231,32 @@ namespace Laro
             {
                 new DialogueLine(
                     User.name,
-                    "*yawn* Aughhh... Why does Discrete Mathematics even exist?"
+                    "*yawn* Aughhh... Why does Discrete Mathematics even exist?",CharacterPortraits.Yawn()
                 ),
                 new DialogueLine(
                     User.name,
-                    "Propositions... truth tables... logical connectives... I swear these things are plotting against me."
+                    "Propositions... truth tables... logical connectives... I swear these things are plotting against me.",CharacterPortraits.Frustration()
                 ),
                 new DialogueLine(
                     User.name,
-                    "Tomorrow is the final exam... and I still feel like I understand absolutely nothing."
+                    "Tomorrow is the final exam... and I still feel like I understand absolutely nothing.",CharacterPortraits.Frustration()
                 ),
                 new DialogueLine(
                     "Narrator",
-                    "Books were scattered across the table. His notebook was filled with scratched-out answers and question marks."
+                    "Books were scattered across the table. " + Pronouns.PossessiveCapital() + " notebook was filled with scratched-out answers and question marks."
                 ),
                 new DialogueLine(
                     User.name,
-                    "If I fail this subject, I'm finished. Okay… one last review. If P then Q…"
+                    "If I fail this subject, I'm finished. Okay… one last review. If P then Q…",CharacterPortraits.Review()
                 ),
                 new DialogueLine(
                     User.name,
-                    "…why does this sound like a threat? Maybe just five more minutes… "
+                    "…why does this sound like a threat? Maybe just five more minutes… ",CharacterPortraits.Review()
                 ),
                 new DialogueLine(
                     "Narrator",
-                    "His eyes grew heavier. The letters on the page began to blur. Without realizing it……. He fell asleep."
+                    Pronouns.PossessiveCapital() +
+                    " eyes grew heavier. The letters on the page began to blur. Without realizing it…… " + Pronouns.Subject() + " fell asleep."
                 )
             };
 		}
@@ -126,18 +264,38 @@ namespace Laro
         {
             var introLines = new List<DialogueLine>
             {
-                new DialogueLine("Prof. Santos",
-                    "Ah, good morning! You must be the new student assistant for the CCS department. I have been expecting you."),
-                new DialogueLine("Student",
-                    "Good morning, Professor Santos! Yes, I am Alex. I was not sure which office to go to — this building is a bit confusing."),
-                new DialogueLine("Prof. Santos",
-                    "Ha! That happens to everyone. Come in and sit down. We have quite a bit to discuss about your duties this semester."),
-                new DialogueLine("Student",
-                    "Of course, Professor. I already reviewed the student handbook. Is there anything specific you would like me to prioritize?"),
-                new DialogueLine("Prof. Santos",
-                    "Sharp thinking — I like that. But before I trust you with lab access, I need to know you are serious. Let me test your logic fundamentals."),
-                new DialogueLine("Prof. Santos",
-                    "The chalkboard over there has a set of questions. Answer them all correctly and I will personally endorse your clearance. Good luck, Alex."),
+                new DialogueLine("Narrator",
+                    "The air is still. This is the final room of the Campus of Logic"),
+                new DialogueLine(User.name,
+            	                 "So this is it.... the final exam.",CharacterPortraits.Idle()),
+                new DialogueLine("Narrator",
+                    "A shadowy figure appears at the front—the faculty teacher."),
+                new DialogueLine("Faculty Teacher",
+                    "You have arrived " + User.name +"."),
+                new DialogueLine(User.name,
+            	                 "Professor?", CharacterPortraits.Shocked()),
+                new DialogueLine("Faculty Teacher",
+                    "Or perhaps I should no longer call you a student."),
+            	new DialogueLine(User.name,
+            	                 "What do you mean by that?",CharacterPortraits.Questioning()),
+            	new DialogueLine("Faculty Teacher",
+                    "This place only understands those who can think beyond confusion. Those who understand logic."),
+            	new DialogueLine(User.name,
+            	                 "Come on, I just want to go back home!",CharacterPortraits.Frustration()),
+            	new DialogueLine("Faculty Teacher",
+                    "Yes you will, but only if you pass."),
+            	new DialogueLine("Narrator",
+                    "Final examination initialized.\nSubject: Discrete Mathematics\nTopics: Propositions, Logical Connectives Truth Tables Quantifiers"),
+            	new DialogueLine(User.name,
+            	                 "So everything I learned.... leads to this.", CharacterPortraits.Idle()),
+            	new DialogueLine("Faculty Teacher",
+                    "Knowledge has a price."),
+            	new DialogueLine("Faculty Teacher",
+                    "Answer truthfully or remain here forever."),
+            	new DialogueLine(User.name,
+            	                 "I got it already!! I've learned enough! I swear I won't fail this time!",CharacterPortraits.Determination()),
+            	new DialogueLine("Faculty Teacher",
+                    "Goodluck."),
             };
             return introLines;
         }
@@ -145,18 +303,12 @@ namespace Laro
 		{
 			var completionLines = new List<DialogueLine>
             {
-                new DialogueLine("Prof. Santos",
-                    "Remarkable! You have answered every question. I did not expect you to get through that so quickly, Alex."),
-                new DialogueLine("Student",
-                    "Thank you, Professor! Honestly, the last few were tricky — especially the ones about tautologies and quantifiers."),
-                new DialogueLine("Prof. Santos",
-                    "Those are precisely the concepts that trip up even second-year students. You clearly studied well."),
-                new DialogueLine("Prof. Santos",
-                    "I am endorsing your lab access effective immediately. You are cleared for Tuesdays and Thursdays, as we discussed."),
-                new DialogueLine("Student",
-                    "I really appreciate it, Professor. I will not let you down. I will be early on Tuesday to set everything up."),
-                new DialogueLine("Prof. Santos",
-                    "I know you will. Welcome to the College of Computer Studies, Alex. A new room has been unlocked for you."),
+                new DialogueLine("Faculty Teacher",
+                    "Many students dislike this subject. But dislike comes from misunderstanding."),
+                new DialogueLine(User.name,
+				                 "I used to think it was impossible. But now.... it finally makes sense.", CharacterPortraits.Idle()),
+                new DialogueLine("Faculty Teacher",
+                    "You have passed."),
             };
 			return completionLines;
 		}

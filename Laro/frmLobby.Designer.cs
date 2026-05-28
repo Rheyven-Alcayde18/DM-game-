@@ -6,7 +6,6 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.TextBox Cutscene;
         private System.Windows.Forms.Label CharacterName;
         private System.Windows.Forms.TextBox DialogueBox;
         private System.Windows.Forms.PictureBox CharacterPic;
@@ -74,11 +73,10 @@
         	// 
         	// CharacterPic
         	// 
-        	this.CharacterPic.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CharacterPic.BackgroundImage")));
         	this.CharacterPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-        	this.CharacterPic.Location = new System.Drawing.Point(983, 321);
+        	this.CharacterPic.Location = new System.Drawing.Point(946, 258);
         	this.CharacterPic.Name = "CharacterPic";
-        	this.CharacterPic.Size = new System.Drawing.Size(121, 186);
+        	this.CharacterPic.Size = new System.Drawing.Size(158, 260);
         	this.CharacterPic.TabIndex = 4;
         	this.CharacterPic.TabStop = false;
         	// 
@@ -91,9 +89,9 @@
         	this.btnLobby.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         	this.btnLobby.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.btnLobby.ForeColor = System.Drawing.Color.White;
-        	this.btnLobby.Location = new System.Drawing.Point(981, 286);
+        	this.btnLobby.Location = new System.Drawing.Point(986, 289);
         	this.btnLobby.Name = "btnLobby";
-        	this.btnLobby.Size = new System.Drawing.Size(149, 29);
+        	this.btnLobby.Size = new System.Drawing.Size(131, 29);
         	this.btnLobby.TabIndex = 6;
         	this.btnLobby.Text = "Library";
         	this.btnLobby.UseVisualStyleBackColor = true;
@@ -146,11 +144,10 @@
         	this.Cutscene.BorderStyle = System.Windows.Forms.BorderStyle.None;
         	this.Cutscene.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.Cutscene.ForeColor = System.Drawing.Color.White;
-        	this.Cutscene.Location = new System.Drawing.Point(323, 214);
+        	this.Cutscene.Location = new System.Drawing.Point(312, 149);
         	this.Cutscene.Multiline = true;
         	this.Cutscene.Name = "Cutscene";
-        	this.Cutscene.ReadOnly = true;
-        	this.Cutscene.Size = new System.Drawing.Size(479, 213);
+        	this.Cutscene.Size = new System.Drawing.Size(533, 250);
         	this.Cutscene.TabIndex = 8;
         	this.Cutscene.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
         	// 
@@ -185,5 +182,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox Cutscene;
     }
 }

@@ -52,6 +52,7 @@ namespace Laro
 			// 
 			// NewGame
 			// 
+			this.NewGame.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NewGame.BackgroundImage")));
 			this.NewGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.NewGame.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.NewGame.FlatAppearance.BorderSize = 0;
@@ -62,12 +63,13 @@ namespace Laro
 			this.NewGame.Name = "NewGame";
 			this.NewGame.Size = new System.Drawing.Size(99, 46);
 			this.NewGame.TabIndex = 1;
-			this.NewGame.Text = "New Game";
+			this.NewGame.Text = "NewGame";
 			this.NewGame.UseVisualStyleBackColor = true;
 			this.NewGame.Click += new System.EventHandler(this.NewGameClick);
 			// 
 			// BckBtn
 			// 
+			this.BckBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BckBtn.BackgroundImage")));
 			this.BckBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.BckBtn.FlatAppearance.BorderSize = 0;
 			this.BckBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -134,6 +136,7 @@ namespace Laro
 			// textBox1
 			// 
 			this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.textBox1.Location = new System.Drawing.Point(382, 132);
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";

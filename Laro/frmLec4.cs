@@ -75,6 +75,11 @@ namespace Laro
 
         void LblBoardClick(object sender, EventArgs e)
         {
+        	if (GameState.Lec4Completed)
+        	{
+        		MessageBox.Show("You already completed this activity.","Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        		return;
+        	}
             ShowChalkboardOverlay();
         }
 
@@ -260,6 +265,7 @@ namespace Laro
                         "Passed!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     HideChalkboardOverlay();
                     GameState.UnlockRoom("Lec5");
+                    GameState.Lec4Completed = true;
                 }
                 else
                 {

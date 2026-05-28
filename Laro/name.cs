@@ -58,6 +58,7 @@ namespace Laro
 		    }
 		
 		    // All fields filled — proceed
+		    SoundManager.ButtonSound();
 		    MessageBox.Show("Username: " + User.name, "Username");
 		    Form Selection = new frmSelection();
 		    Selection.Show();

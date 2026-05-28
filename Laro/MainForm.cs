@@ -16,6 +16,7 @@ namespace Laro
 		void StrtButtonClick(object sender, EventArgs e)
 		{
 			//Start Button creates a new form for creating a new game or continuing the old one
+			SoundManager.ButtonSound();
 			Form name = new frmName();
 			name.Show();
 			this.Hide();
@@ -23,6 +24,7 @@ namespace Laro
 		}
 		void QuitBtnClick(object sender, EventArgs e)
 		{
+			SoundManager.ButtonSound();
 			//Quit Button shows dialog box that confirms whether the player wants to quit or not
             DialogResult quit = MessageBox.Show("Are you sure you want to quit?", "Yes, Quit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             //Selecting yes closes the application
@@ -34,12 +36,12 @@ namespace Laro
 		}
 		void MainFormLoad(object sender, EventArgs e)
 		{
-			MusicManager.BackGroundMusicPlay();
 		}
 
         private void CrdtsBtn_Click(object sender, EventArgs e)
         {
         	//Button for credit section
+        	SoundManager.ButtonSound();
             frmCredits frmCreditsPage = new frmCredits();
             this.Hide();
             frmCreditsPage.Show();
@@ -63,12 +65,12 @@ namespace Laro
 			if (MusicPlayer.Checked)
 			{
 				MusicPlayer.ImageIndex = 0;
-				MusicManager.BackGroundMusicStop();
+				AudioManager.isMuted = true;
 			}
 			else if (!MusicPlayer.Checked)
 			{
 				MusicPlayer.ImageIndex = 1;
-				MusicManager.BackGroundMusicPlay();
+				AudioManager.isMuted = false;
 			}
 		}
 		

@@ -31,6 +31,7 @@ namespace Laro
 		void BckBtnClick(object sender, EventArgs e)
 		{
 			//Back to Main Menu
+			SoundManager.ButtonSound();
 			Form MainForm = new MainForm();
 			MainForm.Show();
 			this.Close();
@@ -38,6 +39,7 @@ namespace Laro
 		void NewGameClick(object sender, EventArgs e)
 		{
 			//Game Start Form Generate
+			SoundManager.ButtonSound();
 			Form Form2 = new frmLobby();
 			Form2.Show();
 			this.Close();
@@ -60,7 +62,7 @@ namespace Laro
         }
 		void FrmSelectionLoad(object sender, EventArgs e)
 		{
-			pictureBox1.Image = Image.FromFile(@"E:\C# Projects\GDA 6 FINAL\Assets\instructions.png");
+			pictureBox1.Image = Image.FromFile("Assets/instructions.png");
 		}
 	}
 }

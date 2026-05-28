@@ -44,7 +44,9 @@ namespace Laro
         public frmLobby()
         {
             InitializeComponent();
-
+			
+            CharacterPic.SizeMode = PictureBoxSizeMode.Zoom;
+            
             btnLobby.Visible       = false;
             DialogueBox.Visible    = false;
             CharacterName.Visible  = false;
@@ -157,6 +159,17 @@ namespace Laro
             _isTyping        = true;
             _lblSpeaker.Text = _lines[_lineIndex].Speaker;
             _lblText.Text    = "";
+            if (_lines[_lineIndex].Portrait != "")
+			{
+			    CharacterPic.Image =
+			        Image.FromFile(_lines[_lineIndex].Portrait);
+			
+			    CharacterPic.Visible = true;
+			}
+			else
+			{
+			    CharacterPic.Visible = false;
+			}
             _lblHint.Text    = "click to skip...";
             _typeTimer.Start();
         }

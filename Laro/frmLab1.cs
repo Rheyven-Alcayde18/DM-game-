@@ -117,7 +117,7 @@ namespace Laro
             // Puzzle 0 – P ∧ Q
             new string[,] { { null,null,"T" }, { null,null,"F" }, { null,null,"F" }, { null,null,"F" } },
             // Puzzle 1 – P ∨ Q
-            new string[,] { { null,null,"T" }, { null,"F",null }, { "F",null,null }, { null,null,"F" } },
+            new string[,] { { null,null,"T" }, { null,"*",null }, { "*",null,null }, { null,null,"F" } },
             // Puzzle 2 – ¬P
             new string[,] { { null,"F" }, { "T",null }, { null,"T" }, { "F",null } },
             // Puzzle 3 – P → Q  (* = accepts T or F, both yield T when Q=T)
@@ -169,6 +169,11 @@ namespace Laro
 
         void LblMonitorClick(object sender, EventArgs e)
         {
+        	if (GameState.Lab1Completed) 
+        	{
+        		MessageBox.Show("You already completed this activity.", "Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        		return;
+        	}
             ShowTruthTableOverlay();
         }
 
@@ -608,6 +613,7 @@ namespace Laro
                         "Passed!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     HideOverlay();
                     GameState.UnlockRoom("CCSFaculty");
+                    GameState.Lab1Completed = true;
                 }
                 else
                 {

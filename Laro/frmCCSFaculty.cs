@@ -194,6 +194,7 @@ namespace Laro
         public frmCCSFaculty()
         {
             InitializeComponent();
+            CharacterPic.SizeMode = PictureBoxSizeMode.Zoom;
             BuildDialogueUI();
             SetupTimer();
         }
@@ -297,10 +298,21 @@ namespace Laro
                 EndDialogue();
                 return;
             }
-            _charIndex       = 0;
+            _charIndex = 0;
             _isTyping        = true;
             _lblSpeaker.Text = _lines[_lineIndex].Speaker;
             _lblText.Text    = "";
+            if (_lines[_lineIndex].Portrait != "")
+			{
+			    CharacterPic.Image =
+			        Image.FromFile(_lines[_lineIndex].Portrait);
+			
+			    CharacterPic.Visible = true;
+			}
+			else
+			{
+			    CharacterPic.Visible = false;
+			}
             _lblHint.Text    = "click to skip...";
             _typeTimer.Start();
         }
@@ -365,14 +377,6 @@ namespace Laro
             exitFaculty.Show();
             this.Close();
         }
-
-        void CharacterCcsClick(object sender, EventArgs e)
-        {
-            
-            // When intro ends → show chalkboard quiz
-            StartDialogue(DialogueScript.CcsFacultyDialogueStart(), onEnd: ShowChalkboardOverlay);
-        }
-
         // ─────────────────────────────────────────────────────────
         //  CHALKBOARD OVERLAY
         // ─────────────────────────────────────────────────────────
@@ -642,21 +646,21 @@ namespace Laro
             // When completion dialogue ends → unlock next room
             StartDialogue(DialogueScript.CcsFacultyDialogueEnd(), onEnd: () =>
             {
-                GameState.UnlockRoom("CCSLibrary"); // adjust room name as needed
+                GameState.CCSfCompleted = true; // adjust room name as needed
+                MessageBox.Show("Congratulations! You finished the game!", "Game Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Application.Exit();
+                
             });
         }
+		async void FrmCCSFacultyLoad(object sender, EventArgs e)
+		{
+			lblExit.Enabled = false;
+			MusicManager.BackGroundMusicPlay();
+			await Task.Delay(1200);
+			
+			StartDialogue(DialogueScript.CcsFacultyDialogueStart(),onEnd: ShowChalkboardOverlay);
+		}
     }
     // ── DialogueLine ─────────────────────────────────────────────
-    public class DialogueLine
-    {
-        public string Speaker;
-        public string Text;
-        public DialogueLine(string speaker, string text)
-        {
-            Speaker = speaker;
-            Text    = text;
-        }
-    }
 
-    
 }

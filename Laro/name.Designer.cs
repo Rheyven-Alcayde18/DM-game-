@@ -107,7 +107,7 @@ namespace Laro
 			// txtName
 			// 
 			this.txtName.AllowDrop = true;
-			this.txtName.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtName.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtName.Location = new System.Drawing.Point(19, 84);
 			this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.txtName.MaxLength = 16;

@@ -121,9 +121,9 @@ C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.Properties.Resources.r
 C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.csproj.GenerateResource.Cache
 C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.exe
 C:\Users\JC\Documents\GitHub\DM-game-\Laro\obj\Debug\Laro.pdb
-E:\C# Projects\GDA 6 FINAL\Laro\bin\Debug\Laro.exe.config
 E:\C# Projects\GDA 6 FINAL\Laro\bin\Debug\Laro.exe
-E:\C# Projects\GDA 6 FINAL\Laro\bin\Debug\Laro.pdb
+E:\C# Projects\GDA 6 FINAL\Laro\bin\Debug\Laro.exe.config
+E:\C# Projects\GDA 6 FINAL\Laro\obj\Debug\Laro.csprojResolveAssemblyReference.cache
 E:\C# Projects\GDA 6 FINAL\Laro\obj\Debug\Laro.AnswerPanelLec4.resources
 E:\C# Projects\GDA 6 FINAL\Laro\obj\Debug\Laro.frmCCSFaculty.resources
 E:\C# Projects\GDA 6 FINAL\Laro\obj\Debug\Laro.frmLab1.resources
@@ -141,3 +141,4 @@ E:\C# Projects\GDA 6 FINAL\Laro\obj\Debug\Laro.Properties.Resources.resources
 E:\C# Projects\GDA 6 FINAL\Laro\obj\Debug\Laro.csproj.GenerateResource.Cache
 E:\C# Projects\GDA 6 FINAL\Laro\obj\Debug\Laro.exe
 E:\C# Projects\GDA 6 FINAL\Laro\obj\Debug\Laro.pdb
+E:\C# Projects\GDA 6 FINAL\Laro\bin\Debug\Laro.pdb

@@ -38,7 +38,7 @@ namespace Laro
             { "Lec4",       false  }, //starts unlocked
             { "Lec5",       true  },
             { "Lab1",       true  },
-            { "CCSFaculty", false },
+            { "CCSFaculty", true },
             { "Library",    false }, //starts unlocked
         };
 

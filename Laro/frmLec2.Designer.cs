@@ -68,7 +68,7 @@
         	this.ClientSize = new System.Drawing.Size(1116, 667);
         	this.Controls.Add(this.lblBboard);
         	this.Controls.Add(this.lblExit);
-        	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+        	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
         	this.Margin = new System.Windows.Forms.Padding(2);
         	this.Name = "frmLec2";
         	this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

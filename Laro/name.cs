@@ -28,18 +28,6 @@ namespace Laro
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
 		}
-		void Button1Click(object sender, EventArgs e)
-		{
-			  this.WindowState = FormWindowState.Minimized; // allows the user to reopen the page from being minimized
-		}
-		void BtnCloseClick(object sender, EventArgs e)
-		{
-			DialogResult quit = MessageBox.Show("Are you sure you want to quit?", "Yes, Quit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (quit == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-		}
 		void BtnSubmitClick(object sender, EventArgs e)
 		{
 			// Check if name is empty
@@ -93,6 +81,5 @@ namespace Laro
 			if(txtName.Text=="")
 				txtName.Text = "Enter character name here...";
 		}
-		
 	}
 }

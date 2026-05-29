@@ -14,9 +14,6 @@ namespace Laro
 		/// Designer variable used to keep track of non-visual components.
 		/// </summary>
 		private System.ComponentModel.IContainer components = null;
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Button btnClose;
-		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.TextBox txtName;
 		private System.Windows.Forms.Button btnSubmit;
 		private System.Windows.Forms.Label label1;
@@ -47,9 +44,6 @@ namespace Laro
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.button1 = new System.Windows.Forms.Button();
-			this.btnClose = new System.Windows.Forms.Button();
-			this.panel1 = new System.Windows.Forms.Panel();
 			this.txtName = new System.Windows.Forms.TextBox();
 			this.btnSubmit = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
@@ -58,51 +52,9 @@ namespace Laro
 			this.Male = new System.Windows.Forms.RadioButton();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.panel3 = new System.Windows.Forms.Panel();
-			this.panel1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// button1
-			// 
-			this.button1.FlatAppearance.BorderSize = 0;
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
-			this.button1.Location = new System.Drawing.Point(1185, 2);
-			this.button1.Margin = new System.Windows.Forms.Padding(2);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(52, 43);
-			this.button1.TabIndex = 5;
-			this.button1.Text = "-";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.Button1Click);
-			// 
-			// btnClose
-			// 
-			this.btnClose.FlatAppearance.BorderSize = 0;
-			this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnClose.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
-			this.btnClose.Location = new System.Drawing.Point(1242, 2);
-			this.btnClose.Margin = new System.Windows.Forms.Padding(2);
-			this.btnClose.Name = "btnClose";
-			this.btnClose.Size = new System.Drawing.Size(52, 43);
-			this.btnClose.TabIndex = 5;
-			this.btnClose.Text = "X";
-			this.btnClose.UseVisualStyleBackColor = true;
-			this.btnClose.Click += new System.EventHandler(this.BtnCloseClick);
-			// 
-			// panel1
-			// 
-			this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
-			this.panel1.Controls.Add(this.button1);
-			this.panel1.Controls.Add(this.btnClose);
-			this.panel1.Location = new System.Drawing.Point(2, 0);
-			this.panel1.Margin = new System.Windows.Forms.Padding(2);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1303, 48);
-			this.panel1.TabIndex = 8;
 			// 
 			// txtName
 			// 
@@ -191,7 +143,7 @@ namespace Laro
 			this.panel2.Controls.Add(this.btnSubmit);
 			this.panel2.Controls.Add(this.groupBox1);
 			this.panel2.Controls.Add(this.txtName);
-			this.panel2.Location = new System.Drawing.Point(418, 134);
+			this.panel2.Location = new System.Drawing.Point(439, 134);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(410, 331);
 			this.panel2.TabIndex = 13;
@@ -210,15 +162,13 @@ namespace Laro
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
 			this.ClientSize = new System.Drawing.Size(1302, 821);
 			this.Controls.Add(this.panel2);
-			this.Controls.Add(this.panel1);
 			this.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "frmName";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "name";
 			this.Load += new System.EventHandler(this.FrmNameLoad);
-			this.panel1.ResumeLayout(false);
 			this.groupBox1.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();

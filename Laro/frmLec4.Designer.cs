@@ -87,7 +87,7 @@
         	this.Controls.Add(this.label2);
         	this.Controls.Add(this.lblClue);
         	this.Controls.Add(this.lblBoard);
-        	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+        	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
         	this.Name = "frmLec4";
         	this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         	this.Text = "Form4";

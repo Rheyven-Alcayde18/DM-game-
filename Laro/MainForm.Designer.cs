@@ -236,7 +236,7 @@ namespace Laro
 			this.Controls.Add(this.QuitBtn);
 			this.Controls.Add(this.StrtButton);
 			this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "MainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Discrete Math";

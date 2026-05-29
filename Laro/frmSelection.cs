@@ -44,22 +44,6 @@ namespace Laro
 			Form2.Show();
 			this.Close();
 		}
-	
-		
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            DialogResult quit = MessageBox.Show("Are you sure you want to quit?", "Yes, Quit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (quit == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
 		void FrmSelectionLoad(object sender, EventArgs e)
 		{
 			pictureBox1.Image = Image.FromFile("Assets/instructions.png");

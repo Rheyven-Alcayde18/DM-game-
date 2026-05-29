@@ -38,15 +38,13 @@ namespace Laro
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSelection));
 			this.NewGame = new System.Windows.Forms.Button();
 			this.BckBtn = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
-			this.btnClose = new System.Windows.Forms.Button();
-			this.panel1 = new System.Windows.Forms.Panel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.panel1.SuspendLayout();
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -64,6 +62,7 @@ namespace Laro
 			this.NewGame.Size = new System.Drawing.Size(99, 46);
 			this.NewGame.TabIndex = 1;
 			this.NewGame.Text = "NewGame";
+			this.toolTip1.SetToolTip(this.NewGame, "Start a new game!");
 			this.NewGame.UseVisualStyleBackColor = true;
 			this.NewGame.Click += new System.EventHandler(this.NewGameClick);
 			// 
@@ -80,49 +79,9 @@ namespace Laro
 			this.BckBtn.Size = new System.Drawing.Size(130, 44);
 			this.BckBtn.TabIndex = 0;
 			this.BckBtn.Text = "BACK";
+			this.toolTip1.SetToolTip(this.BckBtn, "Return to the main menu.");
 			this.BckBtn.UseVisualStyleBackColor = true;
 			this.BckBtn.Click += new System.EventHandler(this.BckBtnClick);
-			// 
-			// button1
-			// 
-			this.button1.FlatAppearance.BorderSize = 0;
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
-			this.button1.Location = new System.Drawing.Point(1016, 2);
-			this.button1.Margin = new System.Windows.Forms.Padding(2);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(45, 35);
-			this.button1.TabIndex = 5;
-			this.button1.Text = "-";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
-			// 
-			// btnClose
-			// 
-			this.btnClose.FlatAppearance.BorderSize = 0;
-			this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnClose.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
-			this.btnClose.Location = new System.Drawing.Point(1066, 2);
-			this.btnClose.Margin = new System.Windows.Forms.Padding(2);
-			this.btnClose.Name = "btnClose";
-			this.btnClose.Size = new System.Drawing.Size(45, 35);
-			this.btnClose.TabIndex = 5;
-			this.btnClose.Text = "X";
-			this.btnClose.UseVisualStyleBackColor = true;
-			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-			// 
-			// panel1
-			// 
-			this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
-			this.panel1.Controls.Add(this.button1);
-			this.panel1.Controls.Add(this.btnClose);
-			this.panel1.Location = new System.Drawing.Point(2, 0);
-			this.panel1.Margin = new System.Windows.Forms.Padding(2);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1117, 39);
-			this.panel1.TabIndex = 5;
 			// 
 			// pictureBox1
 			// 
@@ -136,7 +95,7 @@ namespace Laro
 			// textBox1
 			// 
 			this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.textBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.textBox1.Location = new System.Drawing.Point(382, 132);
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";
@@ -154,25 +113,21 @@ namespace Laro
 			this.ClientSize = new System.Drawing.Size(1116, 667);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.pictureBox1);
-			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.NewGame);
 			this.Controls.Add(this.BckBtn);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "frmSelection";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Selection";
 			this.Load += new System.EventHandler(this.FrmSelectionLoad);
-			this.panel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
 		}
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ToolTip toolTip1;
 	}
 }

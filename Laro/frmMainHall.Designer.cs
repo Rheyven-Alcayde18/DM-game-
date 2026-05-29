@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
         	this.components = new System.ComponentModel.Container();
-        	System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainHall));
         	this.lblLab1 = new System.Windows.Forms.Label();
         	this.lblLibrary = new System.Windows.Forms.Label();
         	this.lblCCSFaculty = new System.Windows.Forms.Label();
@@ -132,7 +131,6 @@
         	this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
         	this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         	this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-        	this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
         	this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
         	this.ClientSize = new System.Drawing.Size(1116, 667);
         	this.Controls.Add(this.lblExit);
@@ -143,7 +141,7 @@
         	this.Controls.Add(this.lblLibrary);
         	this.Controls.Add(this.lblLab1);
         	this.Cursor = System.Windows.Forms.Cursors.Arrow;
-        	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+        	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
         	this.Name = "frmMainHall";
         	this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         	this.Text = "Form3";

@@ -51,8 +51,8 @@
         	this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
         	this.ClientSize = new System.Drawing.Size(1116, 667);
         	this.Controls.Add(this.lblExit);
-        	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-        	this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+        	this.Margin = new System.Windows.Forms.Padding(2);
         	this.Name = "frmLibrary";
         	this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         	this.Text = "frmLibrary";

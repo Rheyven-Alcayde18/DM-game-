@@ -220,6 +220,9 @@
         e44BjgWOCY4NjhGOFY4Zjh2OodI6rKJMHs//A3A1DHkjp0tDAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="BckBtn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAACMCAYAAACTd3dxAAABgWlDQ1BzUkdCIElFQzYxOTY2LTIuMQAA
@@ -321,14 +324,13 @@
 </value>
   </data>
   <data name="textBox1.Text" xml:space="preserve">
-    <value>GDA 6 is a game that focuses on Discrete Mathematics.
-It encourages problem solving, analyzing and critical thinking-skills.
-In this game, you explore a school that has questions and hints littered
-althroughout. You need to answer the questions correctly to unlock
-other rooms that will eventually lead you to the final exam.
-Passing the final exam ends the game and lets you leave the school.
+    <value>GDA 6 is a game that focuses on Discrete Mathematics. 
+It encourages problem solving and critical thinking skills.
 
-Remember that you need to score at least 70% to progress through the game.
-</value>
+In this game, you explore a school that has questions and hints littered althroughout.
+You need to answer questions correctly to unlock other room that will eventually
+lead you to the final exam. Passing the final exam ends the game and lets you leave the school.
+
+Remember that you need to score at least 70% to progress through the game.</value>
   </data>
 </root>

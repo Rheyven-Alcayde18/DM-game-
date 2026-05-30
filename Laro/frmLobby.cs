@@ -1,8 +1,4 @@
-﻿// ============================================================
-// frmLobby.cs — with built-in multi-character dialogue system
-// SharpDevelop / C# WinForms compatible
-// ============================================================
-
+﻿
 using System;
 using System.Collections.Generic;
 using System.Drawing;
